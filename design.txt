@@ -1,0 +1,14 @@
+1 During reading
+  split article/book in pages;
+  run over pages;
+  split current page in sentences;
+  run over sentences;
+  split sentence in words; (phrases are not considered now)
+  run over words;
+  formalize word xxx to XXX;
+  if ( XXX is not empty):  # (means XXX is in public dictionary)
+     if it is a new word XXX, never seen before
+         do following to change the database
+             (1) insert XXX into WORDLIST
+             (2) insert current sentence into SENTENCES
+    

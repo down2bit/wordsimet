@@ -1,0 +1,48 @@
+database design
+tables
+
+SOURCES  -- store books, magazine/articles, internet websites/url, movies
+id
+source
+sourcetype
+comment
+
+SENTENCES
+id
+sentence
+source
+
+KNOWN
+spell
+lastdate
+
+WORDLIST
+id
+spell
+mydef
+
+NAMELIST  -- proper names like people, place, organization etc
+id
+spell
+mydef
+
+WORD_EXPE  -- word experience, history, story
+wordid
+sentid
+when
+
+WORD_STAT  -- word statistics
+wordid
+metcount  -- how many time I meet this word, initialized to 1
+familarity  -- from 1 to 9, 9 means it is known well, not a new word any more
+importance -- from 1 to 9, 1 means basic word, 10 means rarely used word, default to 5
+
+PUBD  -- public dictionary, wordnet, for example
+
+MYWORDNET
+wordid
+synanym
+antagnym
+simspell
+simsound
+
