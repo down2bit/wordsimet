@@ -1,0 +1,155 @@
+B+  Four-Note Chords Altenate
+F-  Diminished 7th arpeggio
+Bb+ in octave altenative
+A-  Diminished 7th arpeggio
+D+-  Dominant 7th arpeggio
+Db+ Four-Note Chords Solid
+Eb- Four-Note Chords Altenate
+G-  Four-Note Chords Solid
+E+  Four-Note Chords Broken
+Gb- Four-Note Chords Broken
+F+  Four-Note Chords Solid
+C+  Four-Note Chords Broken
+B+  Scale separeted by a 10th
+Gb+ in octave scale
+Ab- Four-Note Chords Solid
+A+  in octave altenative
+A+  Four-Note Chords Altenate
+A-  Diminished 7th altenate
+G+-  Dominant 7th solid
+Gb- Diminished 7th broken
+E-  Four-Note Chords Altenate
+Gb+- Dominant 7th broken
+Ab- Diminished 7th solid
+E-  Melodic Scale
+E+-  Dominant 7th arpeggio
+D-  Four-Note Chords Altenate
+Ab- Diminished 7th arpeggio
+Db- Harmonic Scale
+Bb- Diminished 7th altenate
+Bb+ in octave scale
+D-  Diminished 7th solid
+Gb- Diminished 7th arpeggio
+C+-  Dominant 7th broken
+C+  Harmonic Scale
+Gb- Four-Note Chords Altenate
+chromatic in octave starting on G
+Db+ in octave altenative
+F+  Scale separeted by a 6th
+E+  Arpeggio
+Gb- Arpeggio
+chromatic starting on A#
+B-  Harmonic Scale
+Db- Four-Note Chords Altenate
+Eb+ Four-Note Chords Solid
+D+  in octave altenative
+Bb+ Four-Note Chords Broken
+chromatic starting on B
+G+-  Dominant 7th alternate
+B-  Melodic Scale
+Bb+ Scale separeted by a 10th
+Bb+ Dominant 7th alternate
+B-  Diminished 7th altenate
+chromatic in octave starting on D
+Gb- Harmonic Scale
+Gb+ Staccato Scale
+B-  Four-Note Chords Altenate
+E+  Scale separeted by a 6th
+Gb- Melodic Scale
+C-  Arpeggio
+E+  Harmonic Scale
+Ab+ Four-Note Chords Broken
+chromatic in octave starting on A
+B+-  Dominant 7th broken
+chromatic starting on D
+C#- Staccato Scale
+Ab+ Arpeggio
+Bb+ Dominant 7th broken
+Bb- Arpeggio
+chromatic starting on F
+D-  Arpeggio
+Bb- Four-Note Chords Broken
+C+  in octave altenative
+C+  Four-Note Chords Solid
+E+-  Dominant 7th alternate
+F#/Gb+ Scale separeted by a 6th
+Db- Diminished 7th arpeggio
+Db+ Harmonic Scale
+D+  Four-Note Chords Solid
+Gb+ Four-Note Chords Altenate
+Ab- Harmonic Scale
+C-  Melodic Scale
+Db+- Dominant 7th solid
+C+-  Dominant 7th solid
+C-  Four-Note Chords Broken
+G-  Four-Note Chords Altenate
+Db+- Dominant 7th alternate
+E-  Diminished 7th altenate
+Bb+ FP Scale
+Bb- Melodic Scale
+G+-  Dominant 7th arpeggio
+D-  Four-Note Chords Solid
+F+  Four-Note Chords Broken
+E+  Four-Note Chords Altenate
+C-  Diminished 7th solid
+Ab+ in octave scale
+Bb+ Dominant 7th arpeggio
+Eb- Four-Note Chords Solid
+F-  Harmonic Scale
+G+-  Dominant 7th broken
+A-  Four-Note Chords Altenate
+F#- FP Scale
+Eb+ Four-Note Chords Broken
+Bb- Diminished 7th solid
+G-  Arpeggio
+Gb+- Dominant 7th arpeggio
+Eb- Arpeggio
+C+  Scale Separated by a 3rd
+C+  Arpeggio
+Gb+- Dominant 7th solid
+E-  Diminished 7th broken
+Ab+- Dominant 7th solid
+Ab- Four-Note Chords Broken
+
+Db- Diminished 7th solid
+D-  Diminished 7th arpeggio
+Bb- Diminished 7th arpeggio
+Eb+ Arpeggio
+E-  Four-Note Chords Broken
+Ab+ Four-Note Chords Altenate
+B+-  Dominant 7th alternate
+Ab+ Harmonic Scale
+D-  Diminished 7th broken
+G+  Arpeggio
+G+  Scale separeted by a 6th
+Ab- Melodic Scale
+Ab+- Dominant 7th broken
+G+  Four-Note Chords Broken
+F-  Melodic Scale
+A+-  Dominant 7th broken
+Bb+ Dominant 7th solid
+A+  Arpeggio
+Gb- Four-Note Chords Solid
+F+-  Dominant 7th arpeggio
+Bb- Harmonic Scale
+Gb- Diminished 7th altenate
+F-  Four-Note Chords Altenate
+A+  Four-Note Chords Broken
+F-  Four-Note Chords Broken
+Ab- Four-Note Chords Altenate
+C+  Four-Note Chords Altenate
+F-  Diminished 7th broken
+chromatic in octave starting on A#
+Eb- Diminished 7th broken
+Eb+ in octave altenative
+Eb+- Dominant 7th arpeggio
+D+  Harmonic Scale
+B+  Harmonic Scale
+Bb- Diminished 7th broken
+Eb- Diminished 7th altenate
+C-  Diminished 7th arpeggio
+Bb- Four-Note Chords Solid
+Bb+ Four-Note Chords Altenate
+G-  Harmonic Scale
+G+  in octave altenative
+F+-  Dominant 7th broken

@@ -1,0 +1,59 @@
+History
+
+OpenText originated in 1991 as a small four-person consulting operation. The company was a spin-off of a University of Waterloo project that developed technology used to index the Oxford English Dictionary. In partnership with colleagues from Oxford University, participants in the project included two professors of Computer Science, Dr. Frank Tompa and Dr. Gaston Gonnet, an undergrad Computer Science co-op student, Michael Knowles, along with their Faculty of Arts colleague, John Stubbs. Later founders of the business application of the technology developed during the course of this project include Tom Jenkins, who joined the company as COO in 1994 and Tim Bray. Tom Jenkins later became President and Chief Executive Officer. John Shackleton served as President from 1998–2011, and as CEO from 2005 - 2011. Today, Mark Barrenechea serves as President and CEO of OpenText, and Tom Jenkins as Executive Chairman and Chief Strategy Officer.
+
+1991 - 94
+OpenText Corporation was incorporated in 1991, a spin-off based on a project at the University of Waterloo to create an electronic Oxford English Dictionary — an undertaking that required developing search technologies that could be used to quickly index and retrieve information. The technology developed for this project was recognized as being useful for other business applications. As a result, the company was incorporated and started shipping product in September of the same year. Early customers include Oxford University Press, the Canadian Pharmaceutical Association, and University Libraries.
+In 1993, the first Windows-based applications delivered to UBS in Switzerland.
+1994, Tom Jenkins joins company as COO, later to become President and CEO.
+
+1994 - 95
+From its origins as creator of one of first Internet search engines and early Web-based document management, workflow and portal software, OpenText realized the potential of the Internet as a platform for collaboration, along with the value of digital content as a strategic knowledge asset that must be managed throughout its lifecycle.
+The company grew as organizations found they needed to index and search their existing and growing stores of electronic information. In 1994 OpenText began hosting its OpenText 4 search engine on the Web, competing directly with the AltaVista Web search engine. In 1995, OpenText provided the search technology used by Yahoo! as part of its Web index.
+In 1995, OpenText purchased Odesta Systems, producer of Livelink, a Web-based electronic document management system. In that same year OpenText shipped its first Web-based product, Latitude Web Server (later renamed Livelink Web Server), which gave Yahoo! the capability of searching every word on every Web page. It also co-developed ArchiveLink with SAP and the first standard ArchiveLink product for SAP.
+
+1996 - 99
+In 1996 OpenText launched its initial public offering of 4.6 million shares raising $61 million.[5]
+OpenText acquired Information Dimensions in 1998, an electronic document management company, adding offices in London, Paris, Frankfurt and Ohio.
+IDC report declared OpenText the market leader (64 percent share) for Web-enabled electronic Document Management.
+Although OpenText was originally known as a vendor of content management and collaboration software, the company started to invest in records management and archiving software to provide capabilities that would protect the knowledge created through collaboration.
+In 1999, OpenText acquired PS Software, records management software that gave organizations the option to safeguard content created through collaboration. Content and metadata collected through collaboration and social networking using both handheld and desktop devices can be managed in the archive, reused and analyzed to drive the reuse of information.
+In 1999, OpenText acquired Microstar Software – for additional XML expertise to enhance collections of records management.
+
+2000 - 03
+May 2002, OpenText is positioned as a leader in the Gartner Team Collaboration Support Magic Quadrant.
+In September 2002 OpenText acquired FirstClass groupware for CA$19 million, bringing collaboration software and expertise to advance its software’s collaboration capabilities.
+In 2002, OpenText released Livelink Wireless, the first mobile application from OpenText built on the BlackBerry
+OpenText acquired Gauss, a developer of Web Content Management based in Germany (WCM) and high-throughput business process management solutions. WCM complemented OpenText’s ECM solutions by adding the ability for organizations to publish content in context through Web properties for Web and mobile access, while maintaining a link back—and the ability to manage—content in the core ECM repository for valuable meta-data and audit information.
+
+2004 - 07
+In 2004, OpenText acquired Munich-based IXOS Software AG, software vendor with 15 years experience integrating with SAP solutions. IXOS archiving solutions consolidated with Livelink records management and collaboration solutions (content from SAP, Lotus Notes, Microsoft SharePoint and Outlook). The long term preservation of knowledge created through collaboration activities is used to ensure business continuity within organizations.
+Later that same year, to enable organizations to manage rich digital content types, OpenText acquired Artesia Technologies, a supplier of digital asset management software for the media and entertainment industry.[8]
+October, 2004, Analyst firm Gartner, Inc. positioned OpenText in the Leaders quadrant of its first Magic Quadrant for Enterprise Content Management, 2004 published on October 19, 2004.[9]
+With the acquisition of Hummingbird Ltd. in 2006, OpenText added several more businesses to its portfolio, including Hummingbird Connectivity and RedDot Solutions Inc, further enhancing its enterprise content management solution.
+In 2007, OpenText acquired Momentum Systems, which provided government implementation expertise to fulfill OpenText’s commitment to government.
+
+2008 - 10
+In 2008, OpenText expanded its ECM portfolio to include Captaris, Inc. and Captaris Document Technologies (CDT), makers of the RightFax Fax Server, Teamplate Workflow and Alchemy Document Management products—adding fax, document distribution, capture and workflow to its portfolio of products. Over 90% of the company's revenue was generated by a channel of partners.
+Acquired Spicer Corporation, specialists in file format viewer solutions for desktop applications, integrated business process management (BPM) systems, and reprographics.
+On April 8, 2009, OpenText announced the acquisition of Vizible Corporation, makers of a digital media interface solution.[10] This allowed for the 3-Dimensional navigation of digital media for enriched user experience, intended for development of virtual interactive and collaborative immersive environments and next-generation ECM platforms.
+On May 6, 2009 OpenText announced an agreement to acquire Vignette Corporation, another ECM software company, for $310 million.[11] On July 21, 2009 OpenText Corporation completed its acquisition of Vignette Corporation.[12] This acquisition introduced secure social media into the ECM platform, along with consumer-based features into enterprise software.
+On February 22, 2010 OpenText announced it entered an agreement to buy Nstein Technologies for $35 million CDN.
+On April 1, 2010 OpenText Corporation completed the acquisition, adding content analytics to its ECM Suite. Content analytics, or semantically-based search engines, filter out ambiguous terms from a person’s true intent, as well as the structure, entities, concepts and relationships between content in a document or on a page.
+June 2010, OpenText announced it had been chosen to provide a confidential and highly secure social networking application for the G-8 and G-20 leaders to exchange ideas and information on important world issues. For the first time in the history of G-20 Summits, policy makers from around the world were able to collaborate over secure social networking software in advance of, during and following the G-20 Toronto Summit.
+On October 27, 2010, OpenText announced the acquisition of StreamServe, Inc., a provider of business communications software, for approximately USD $71 million, adding document output management (DOM) and customer communication management software.
+2010 - 11
+On February 2, 2011, OpenText announced the acquisition of Metastorm Inc. a provider of Business Process Management (BPM), Business Process Analysis (BPA), and Enterprise Architecture (EA) software, further expanding its ECM portfolio capabilities with process management functionality including the ability to bring together business and IT to discover, model, analyze, and optimize business processes.
+On March 8, 2011, OpenText announced the acquisition of London-based weComm, a mobile application pioneer that offers technology for deployment of high-quality, media rich applications across more than 900 mobile devices and platforms. This strategic acquisition advanced OpenText’s Mobile App Strategy.
+On July 13, 2011, OpenText announced that it had acquired Global 360 Holding Corporation, a leading provider of process and case management solutions and document-centric Business process management, for approximately USD $260 million.
+Companies use BPM software to create and manage various business processes, such as the steps involved in purchasing supplies, fulfilling orders, or hiring new workers.
+On October 31, 2011, OpenText announced that it had acquired the Australian company MESSAGEmanager Solutions a global leader in messaging and communication solutions for IP and Public Switched Networks, with a product line of Fax, SMS, Voice, Speech and Presence offerings.
+
+Products
+
+OpenText Enterprise Information Management is an integrated set of five groups of programs: : OpenText Enterprise Content Management (ECM), OpenText Business Process Management (BPM), OpenText Customer Experience Management (CEM), OpenText Information Exchange (iX), and Discovery.
+OpenText Enterprise Content Management is an integrated set of technologies that manage information throughout its lifecycle. It manages both structured and unstructured content within an enterprise, ranging from office and PDF documents to CAD diagrams and models, emails, contracts, case records, templates, and other types of unstructured data.
+OpenText Business Process Management is a range of offerings to provide information on business operations. It captures the output of processes like a sold product, a resolved insurance claim, or a new drug taken to market, and provides a mechanism to assemble the context of the decisions and outputs of those processes.
+OpenText Customer Experience Management is a set of technologies for presenting an organization’s information to its customers.
+OpenText Information Exchange is a set of programs for secure and compliant exchange of information inside and outside of the enterprise, Rather than the management of data objects, which behave like a document or email would, it manages the management of transient, communicative exchanges of varying electronic format.
+OpenText Discovery captures, combines, and transforms data from information silos into formats that can be analyzed for deeper insight. It is intended to reduce the expense and time associated with traditional legal or other information discovery. It supplements Full text search by providing the ability to auto-classify content and perform semantic analysis and navigation.

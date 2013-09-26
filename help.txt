@@ -1,0 +1,14 @@
+    help:                    to show this page;
+    allusers:                to show all users available;
+    login username password: to login
+    logout:
+    register username password datafile: to add user
+    updateFile newfile:      set newfile as current user's datafile
+    findNew:                 find all new words in the article
+    selectAll:               select all words in the right panel.
+    Apply:                   add new words to database.
+    fontsize up/down:
+    sent[ence] astute:       get a sentence containing astute 
+    def[inition] axiom:      get meaning of axiom
+    nextPage:
+    prevPage:

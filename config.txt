@@ -1,0 +1,7 @@
+[dongle]
+ip = 192.168.0.100
+password = morega2009
+prompt = $
+port = 8082
+user = root
+

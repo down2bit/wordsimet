@@ -1,0 +1,35 @@
+Simple:
+
+Advanced
+1 TableMnemonic
+Fields:
+  id
+  type:sentence/story/etymology/group/note/picture
+  content
+  source
+  date
+  
+
+2 TableLearnProcess
+Fields:
+  spell
+  referenceList: list of foreignKey(id) of mnemonic table
+
+3 TableWord(Known or New)
+Fields:
+   spell
+   definition/synonym
+   metTimes
+   familarity(0-9)
+   importance(0-9)
+   firstdate
+   lastdate
+   
+4 TableUser
+  id:
+  name:
+  password:
+  passphrase:
+  email:
+  dayofbirth:
+  dictfile:

@@ -1,0 +1,294 @@
+Ab+ Scale separeted by a 10th
+A+  Scale separeted by a 10th
+Bb+ Scale separeted by a 10th
+B+  Scale separeted by a 10th
+E+  Scale separeted by a 6th
+F+  Scale separeted by a 6th
+F#/Gb+ Scale separeted by a 6th
+G+  Scale separeted by a 6th
+C+  Scale Separated by a 3rd
+Db+ Scale Separated by a 3rd
+D+  Scale Separated by a 3rd
+Eb+ Scale Separated by a 3rd
+Ab+ Arpeggio
+A+  Arpeggio
+Bb+ Arpeggio
+B+  Arpeggio
+C+  Arpeggio
+Db+ Arpeggio
+D+  Arpeggio
+Eb+ Arpeggio
+E+  Arpeggio
+F+  Arpeggio
+Gb+ Arpeggio
+G+  Arpeggio
+Ab- Arpeggio
+A-  Arpeggio
+Bb- Arpeggio
+B-  Arpeggio
+C-  Arpeggio
+Db- Arpeggio
+D-  Arpeggio
+Eb- Arpeggio
+E-  Arpeggio
+F-  Arpeggio
+Gb- Arpeggio
+G-  Arpeggio
+Ab+ Four-Note Chords Solid
+Ab- Four-Note Chords Solid
+A+  Four-Note Chords Solid
+A-  Four-Note Chords Solid
+Bb+ Four-Note Chords Solid
+Bb- Four-Note Chords Solid
+B+  Four-Note Chords Solid
+B-  Four-Note Chords Solid
+C+  Four-Note Chords Solid
+C-  Four-Note Chords Solid
+Db+ Four-Note Chords Solid
+Db- Four-Note Chords Solid
+D+  Four-Note Chords Solid
+D-  Four-Note Chords Solid
+Eb+ Four-Note Chords Solid
+Eb- Four-Note Chords Solid
+E+  Four-Note Chords Solid
+E-  Four-Note Chords Solid
+F+  Four-Note Chords Solid
+F-  Four-Note Chords Solid
+Gb+ Four-Note Chords Solid
+Gb- Four-Note Chords Solid
+G+  Four-Note Chords Solid
+G-  Four-Note Chords Solid
+Ab+ Four-Note Chords Broken
+Ab- Four-Note Chords Broken
+A+  Four-Note Chords Broken
+A-  Four-Note Chords Broken
+Bb+ Four-Note Chords Broken
+Bb- Four-Note Chords Broken
+B+  Four-Note Chords Broken
+B-  Four-Note Chords Broken
+C+  Four-Note Chords Broken
+C-  Four-Note Chords Broken
+Db+ Four-Note Chords Broken
+Db- Four-Note Chords Broken
+D+  Four-Note Chords Broken
+D-  Four-Note Chords Broken
+Eb+ Four-Note Chords Broken
+Eb- Four-Note Chords Broken
+E+  Four-Note Chords Broken
+E-  Four-Note Chords Broken
+F+  Four-Note Chords Broken
+F-  Four-Note Chords Broken
+Gb+ Four-Note Chords Broken
+Gb- Four-Note Chords Broken
+G+  Four-Note Chords Broken
+G-  Four-Note Chords Broken
+Ab+ Four-Note Chords Altenate
+Ab- Four-Note Chords Altenate
+A+  Four-Note Chords Altenate
+A-  Four-Note Chords Altenate
+Bb+ Four-Note Chords Altenate
+Bb- Four-Note Chords Altenate
+B+  Four-Note Chords Altenate
+B-  Four-Note Chords Altenate
+C+  Four-Note Chords Altenate
+C-  Four-Note Chords Altenate
+Db+ Four-Note Chords Altenate
+Db- Four-Note Chords Altenate
+D+  Four-Note Chords Altenate
+D-  Four-Note Chords Altenate
+Eb+ Four-Note Chords Altenate
+Eb- Four-Note Chords Altenate
+E+  Four-Note Chords Altenate
+E-  Four-Note Chords Altenate
+F+  Four-Note Chords Altenate
+F-  Four-Note Chords Altenate
+Gb+ Four-Note Chords Altenate
+Gb- Four-Note Chords Altenate
+G+  Four-Note Chords Altenate
+G-  Four-Note Chords Altenate
+Ab- Diminished 7th arpeggio
+A-  Diminished 7th arpeggio
+Bb- Diminished 7th arpeggio
+B-  Diminished 7th arpeggio
+C-  Diminished 7th arpeggio
+Db- Diminished 7th arpeggio
+D-  Diminished 7th arpeggio
+Eb- Diminished 7th arpeggio
+E-  Diminished 7th arpeggio
+F-  Diminished 7th arpeggio
+Gb- Diminished 7th arpeggio
+G-  Diminished 7th arpeggio
+Ab- Diminished 7th solid
+A-  Diminished 7th solid
+Bb- Diminished 7th solid
+B-  Diminished 7th solid
+C-  Diminished 7th solid
+Db- Diminished 7th solid
+D-  Diminished 7th solid
+Eb- Diminished 7th solid
+E-  Diminished 7th solid
+F-  Diminished 7th solid
+Gb- Diminished 7th solid
+G-  Diminished 7th solid
+Ab- Diminished 7th broken
+A-  Diminished 7th broken
+Bb- Diminished 7th broken
+B-  Diminished 7th broken
+C-  Diminished 7th broken
+Db- Diminished 7th broken
+D-  Diminished 7th broken
+Eb- Diminished 7th broken
+E-  Diminished 7th broken
+F-  Diminished 7th broken
+Gb- Diminished 7th broken
+G-  Diminished 7th broken
+Ab- Diminished 7th altenate
+A-  Diminished 7th altenate
+Bb- Diminished 7th altenate
+B-  Diminished 7th altenate
+C-  Diminished 7th altenate
+Db- Diminished 7th altenate
+D-  Diminished 7th altenate
+Eb- Diminished 7th altenate
+E-  Diminished 7th altenate
+F-  Diminished 7th altenate
+Gb- Diminished 7th altenate
+G-  Diminished 7th altenate
+Ab+- Dominant 7th solid
+A+-  Dominant 7th solid
+Bb+ Dominant 7th solid
+B+-  Dominant 7th solid
+C+-  Dominant 7th solid
+Db+- Dominant 7th solid
+D+-  Dominant 7th solid
+Eb+- Dominant 7th solid
+E+-  Dominant 7th solid
+F+-  Dominant 7th solid
+Gb+- Dominant 7th solid
+G+-  Dominant 7th solid
+Ab+- Dominant 7th broken
+A+-  Dominant 7th broken
+Bb+ Dominant 7th broken
+B+-  Dominant 7th broken
+C+-  Dominant 7th broken
+Db+- Dominant 7th broken
+D+-  Dominant 7th broken
+Eb+- Dominant 7th broken
+E+-  Dominant 7th broken
+F+-  Dominant 7th broken
+Gb+- Dominant 7th broken
+G+-  Dominant 7th broken
+Ab+- Dominant 7th alternate
+A+-  Dominant 7th alternate
+Bb+ Dominant 7th alternate
+B+-  Dominant 7th alternate
+C+-  Dominant 7th alternate
+Db+- Dominant 7th alternate
+D+-  Dominant 7th alternate
+Eb+- Dominant 7th alternate
+E+-  Dominant 7th alternate
+F+-  Dominant 7th alternate
+Gb+- Dominant 7th alternate
+G+-  Dominant 7th alternate
+Ab+- Dominant 7th arpeggio
+A+-  Dominant 7th arpeggio
+Bb+ Dominant 7th arpeggio
+B+-  Dominant 7th arpeggio
+C+-  Dominant 7th arpeggio
+Db+- Dominant 7th arpeggio
+D+-  Dominant 7th arpeggio
+Eb+- Dominant 7th arpeggio
+E+-  Dominant 7th arpeggio
+F+-  Dominant 7th arpeggio
+Gb+- Dominant 7th arpeggio
+G+-  Dominant 7th arpeggio
+Ab+ Harmonic Scale
+Ab- Harmonic Scale
+A+  Harmonic Scale
+A-  Harmonic Scale
+Bb+ Harmonic Scale
+Bb- Harmonic Scale
+B+  Harmonic Scale
+B-  Harmonic Scale
+C+  Harmonic Scale
+C-  Harmonic Scale
+Db+ Harmonic Scale
+Db- Harmonic Scale
+D+  Harmonic Scale
+D-  Harmonic Scale
+Eb+ Harmonic Scale
+Eb- Harmonic Scale
+E+  Harmonic Scale
+E-  Harmonic Scale
+F+  Harmonic Scale
+F-  Harmonic Scale
+Gb+ Harmonic Scale
+Gb- Harmonic Scale
+G+  Harmonic Scale
+G-  Harmonic Scale
+Ab- Melodic Scale
+A-  Melodic Scale
+Bb- Melodic Scale
+B-  Melodic Scale
+C-  Melodic Scale
+Db- Melodic Scale
+D-  Melodic Scale
+Eb- Melodic Scale
+E-  Melodic Scale
+F-  Melodic Scale
+Gb- Melodic Scale
+G-  Melodic Scale
+Bb+ Staccato Scale
+Bb+ FP Scale
+Bb+ in octave scale
+Ab+ Staccato Scale
+Ab+ FP Scale
+Ab+ in octave scale
+Gb+ Staccato Scale
+Gb+ FP Scale
+Gb+ in octave scale
+F#- Staccato Scale
+F#- FP Scale
+F#- in octave scale
+C#- Staccato Scale
+C#- FP Scale
+C#- in octave scale
+Eb- Staccato Scale
+Eb- FP Scale
+Eb- in octave scale
+Ab+ in octave altenative
+A+  in octave altenative
+Bb+ in octave altenative
+B+  in octave altenative
+C+  in octave altenative
+Db+ in octave altenative
+D+  in octave altenative
+Eb+ in octave altenative
+E+  in octave altenative
+F+  in octave altenative
+Gb+ in octave altenative
+G+  in octave altenative
+chromatic starting on C
+chromatic starting on C#
+chromatic starting on D
+chromatic starting on D#
+chromatic starting on E
+chromatic starting on F
+chromatic starting on F#
+chromatic starting on G
+chromatic starting on G#
+chromatic starting on A
+chromatic starting on A#
+chromatic starting on B
+chromatic in octave starting on C
+chromatic in octave starting on C#
+chromatic in octave starting on D
+chromatic in octave starting on D#
+chromatic in octave starting on E
+chromatic in octave starting on F
+chromatic in octave starting on F#
+chromatic in octave starting on G
+chromatic in octave starting on G#
+chromatic in octave starting on A
+chromatic in octave starting on A#
+chromatic in octave starting on B
