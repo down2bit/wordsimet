@@ -52,12 +52,19 @@ class ViewCtrl(MyPanels):
         shell.shellcmd(strin,self)
     def onNext(self,event=None):
         if self.page+1 < self.pagenum:
+            shell.shellcmd("applyNew",self)
             self.page +=1
             self.booktext.SetValue(self.pages[self.page])
+            shell.shellcmd("findNew",self)
+            shell.shellcmd("selectAll",self)
+        
     def onPrev(self,event=None):
         if self.page > 0:
+            shell.shellcmd("applyNew",self)
             self.page -= 1
             self.booktext.SetValue(self.pages[self.page])
+            shell.shellcmd("findNew",self)
+            shell.shellcmd("selectAll",self)
         
     def OnCfg(self,event):
         pass
@@ -105,6 +112,9 @@ class ViewCtrl(MyPanels):
             self.pages = shell.split2page(self.content)
             self.pagenum = len(self.pages)
             self.booktext.SetValue(self.pages[self.page])
+            
+            shell.shellcmd("findNew",self)
+            self.panelRight.pagenew.OnSelectAll(None)
         dlg.Destroy()
 
     def OnSave(self,event):

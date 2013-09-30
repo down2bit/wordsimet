@@ -123,7 +123,10 @@ class PageNewwords(wx.Panel):
     def OnSelectAll(self, event):
         num = self.list.GetItemCount()
         for i in range(num):
-            self.list.CheckItem(i)
+            if self.list.IsChecked(i):
+                self.list.CheckItem(i,False)
+            else:
+                self.list.CheckItem(i)
 
     def OnDeselectAll(self, event):
         num = self.list.GetItemCount()

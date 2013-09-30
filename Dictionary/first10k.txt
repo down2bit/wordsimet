@@ -1,5 +1,3 @@
-edit
-edit
 the
 of
 and
@@ -100,7 +98,7 @@ first
 mr
 good
 men
-edit
+
 own
 never
 most
@@ -201,7 +199,7 @@ set
 both
 got
 find
-edit
+
 done
 heard
 look
@@ -302,7 +300,7 @@ means
 believe
 passed
 feet
-edit
+
 near
 public
 state
@@ -402,7 +400,7 @@ ground
 really
 rest
 mean
-edit
+
 different
 making
 possible
@@ -503,7 +501,7 @@ feeling
 act
 meet
 paid
-edit
+
 further
 purpose
 happy
@@ -603,7 +601,7 @@ length
 company
 placed
 paper
-edit
+
 letters
 probably
 glad
@@ -704,7 +702,7 @@ appearance
 evil
 march
 George
-edit
+
 whatever
 slowly
 tears
@@ -805,7 +803,7 @@ meant
 somewhat
 sudden
 value
-edit
+
 c
 direction
 chair
@@ -906,7 +904,7 @@ prepared
 escape
 attempt
 supposed
-edit
+
 killed
 fast
 author
@@ -1007,8 +1005,8 @@ shot
 lead
 move
 names
-edit
-edit
+
+
 stop
 higher
 et
@@ -1109,7 +1107,7 @@ share
 expect
 couldn't
 dollars
-edit
+
 spread
 opposite
 glory
@@ -1210,7 +1208,7 @@ pieces
 clearly
 price
 ships
-edit
+
 thirty
 sick
 honest
@@ -1311,7 +1309,7 @@ secure
 desired
 grass
 touched
-edit
+
 occupied
 draw
 stage
@@ -1412,7 +1410,7 @@ ain't
 evidently
 principle
 immediate
-edit
+
 willing
 consequence
 richard
@@ -1513,7 +1511,7 @@ nine
 sympathy
 burst
 putting
-edit
+
 dressed
 lifted
 hopes
@@ -1614,7 +1612,7 @@ title
 understanding
 sunday
 fruit
-edit
+
 mad
 forces
 included
@@ -1715,7 +1713,7 @@ join
 process
 crime
 dust
-edit
+
 instantly
 lands
 relation
@@ -1816,7 +1814,7 @@ escaped
 careful
 enjoy
 drop
-edit
+
 brilliant
 brief
 bringing
@@ -1917,7 +1915,7 @@ vision
 rare
 granted
 raise
-edit
+
 Egypt
 manners
 cousin
@@ -2018,8 +2016,8 @@ gift
 ruin
 skill
 cattle
-edit
-edit
+
+
 equipment
 temple
 calls
@@ -2120,7 +2118,7 @@ ball
 stick
 absolute
 readily
-edit
+
 behold
 fierce
 argument
@@ -2221,7 +2219,7 @@ household
 fleet
 baby
 region
-edit
+
 lately
 uttered
 exact
@@ -2322,7 +2320,7 @@ providing
 majority
 measures
 towns
-edit
+
 flame
 boston
 dared
@@ -2423,7 +2421,7 @@ hanging
 pipe
 useless
 nevertheless
-edit
+
 print
 smooth
 solid
@@ -2524,7 +2522,7 @@ prayers
 fever
 selected
 daughters
-edit
+
 treat
 warning
 flew
@@ -2625,7 +2623,7 @@ costs
 threatened
 arrangement
 western
-edit
+
 sang
 beings
 sam
@@ -2726,7 +2724,7 @@ involved
 sunshine
 dutch
 council
-edit
+
 princes
 ate
 examination
@@ -2828,7 +2826,7 @@ critical
 jerusalem
 directions
 negro
-edit
+
 fearful
 standard
 studied
@@ -2929,7 +2927,7 @@ intelligent
 county
 beaten
 presents
-edit
+
 format
 flow
 sixty
@@ -3030,8 +3028,8 @@ tendency
 remote
 finish
 flag
-edit
-edit
+
+
 boots
 enabled
 administration
@@ -3132,7 +3130,7 @@ unexpected
 desk
 gross
 lane
-edit
+
 happens
 represent
 billy
@@ -3233,7 +3231,7 @@ invitation
 narrative
 risen
 burnt
-edit
+
 sentiments
 inferior
 amusement
@@ -3334,7 +3332,7 @@ sore
 earliest
 finest
 enable
-edit
+
 discipline
 motives
 fastened
@@ -3435,7 +3433,7 @@ leisure
 deadly
 chin
 claimed
-edit
+
 glow
 husband's
 emotions
@@ -3536,7 +3534,7 @@ trick
 trusted
 column
 financial
-edit
+
 cunning
 preparation
 drama
@@ -3638,7 +3636,7 @@ appearing
 department
 parish
 stephen
-edit
+
 nay
 lit
 handkerchief
@@ -3739,7 +3737,7 @@ wash
 recognition
 confession
 clay
-edit
+
 nonsense
 trunk
 management
@@ -3840,7 +3838,7 @@ load
 pretend
 folded
 brass
-edit
+
 internal
 furious
 curtain
@@ -3941,7 +3939,7 @@ jan
 columns
 weep
 identify
-edit
+
 discharge
 bench
 ralph
@@ -4042,8 +4040,8 @@ violently
 donation
 steamer
 witnesses
-edit
-edit
+
+
 specified
 learnt
 stores
@@ -4144,7 +4142,7 @@ decent
 fiery
 images
 tie
-edit
+
 punished
 submitted
 julia
@@ -4245,7 +4243,7 @@ sue
 protested
 scarlet
 abandon
-edit
+
 artistic
 mainly
 measured
@@ -4346,7 +4344,7 @@ retain
 constructed
 daniel
 ut
-edit
+
 philadelphia
 conspicuous
 channel
@@ -4447,7 +4445,7 @@ widely
 illinois
 charlotte
 endeavoured
-edit
+
 ardent
 cow
 mill
@@ -4548,7 +4546,7 @@ manuscript
 cigar
 warrior
 impressions
-edit
+
 aught
 lifting
 inaccurate
@@ -4649,7 +4647,7 @@ background
 subscribe
 tenderly
 transcribe
-edit
+
 descend
 differ
 majesty's
@@ -4750,7 +4748,7 @@ tossed
 block
 lots
 worldly
-edit
+
 muscles
 elbow
 obligation
@@ -4851,7 +4849,7 @@ interpreted
 th
 extremity
 accord
-edit
+
 sally
 lace
 tremble
@@ -4952,7 +4950,7 @@ bits
 consult
 moves
 r
-edit
+
 warn
 taylor
 vile
@@ -5053,8 +5051,8 @@ hurriedly
 manhood
 quantities
 interpretation
-edit
-edit
+
+
 dressing
 rejoiced
 edinburgh
@@ -5155,7 +5153,7 @@ rod
 blaze
 examining
 naples
-edit
+
 peculiarly
 vegetables
 ingenious
@@ -5256,7 +5254,7 @@ shocked
 escort
 forgetting
 hanged
-edit
+
 hats
 mirth
 uncomfortable
@@ -5357,7 +5355,7 @@ bunch
 pencil
 subjected
 vegetable
-edit
+
 exhibit
 emerged
 cooked
@@ -5458,7 +5456,7 @@ santa
 approve
 cautiously
 miller
-edit
+
 afflicted
 lodgings
 petition
@@ -5559,7 +5557,7 @@ split
 yielding
 newsletter
 snake
-edit
+
 pub
 historian
 ass
@@ -5660,7 +5658,7 @@ baggage
 terrace
 deaf
 allusion
-edit
+
 grip
 juice
 isabel
@@ -5761,7 +5759,7 @@ oft
 crystal
 shower
 diseases
-edit
+
 ferdinand
 obedient
 draught
@@ -5862,7 +5860,7 @@ conspiracy
 restrain
 splendor
 preservation
-edit
+
 pub
 pepper
 basin
@@ -5963,7 +5961,7 @@ tour
 prophecy
 spectacles
 obsolete
-edit
+
 buying
 shepherd
 wells
@@ -6064,8 +6062,8 @@ bee
 bury
 efficient
 mix
-edit
-edit
+
+
 supporting
 actor
 disturbance
@@ -6166,7 +6164,7 @@ passionately
 inasmuch
 unexpectedly
 stress
-edit
+
 consumption
 groan
 suits
@@ -6267,7 +6265,7 @@ maids
 rates
 underneath
 expedient
-edit
+
 emma
 impress
 bees
@@ -6368,7 +6366,7 @@ pet
 skull
 lectures
 ness
-edit
+
 threat
 legislature
 plunder
@@ -6469,7 +6467,7 @@ majestic
 messages
 prussian
 suspense
-edit
+
 clare
 relationship
 skirt
@@ -6570,7 +6568,7 @@ tract
 standards
 afore
 ribbon
-edit
+
 cecilia
 oregon
 integrity
@@ -6671,7 +6669,7 @@ insight
 definitely
 stature
 troy
-edit
+
 miriam
 judah
 oblige
@@ -6772,7 +6770,7 @@ infancy
 foam
 keith
 tavern
-edit
+
 fraud
 th
 cradle
@@ -6873,7 +6871,7 @@ composure
 turf
 poland
 dame
-edit
+
 missionaries
 orator
 perpetually
@@ -6974,7 +6972,7 @@ wordsworth
 balcony
 darker
 mac
-edit
+
 nevada
 christopher
 fork
@@ -7075,8 +7073,8 @@ devised
 singer
 spaces
 emerson
-edit
-edit
+
+
 disguised
 antique
 orthodox
@@ -7167,7 +7165,7 @@ butler
 rattle
 transported
 estimation
-edit
+
 gotten
 cuts
 headlong
@@ -7277,7 +7275,7 @@ orchard
 persuasion
 invaded
 alps
-edit
+
 ungrateful
 insensible
 muscle
@@ -7378,7 +7376,7 @@ valentine
 harvey
 icy
 inconvenience
-edit
+
 v
 pots
 dimensions
@@ -7479,7 +7477,7 @@ anticipation
 melt
 tilde
 thames
-edit
+
 grade
 mischievous
 pang
@@ -7580,7 +7578,7 @@ appoint
 pearl
 thrilled
 gains
-edit
+
 interrupt
 extravagance
 jokes
@@ -7681,7 +7679,7 @@ tendencies
 concrete
 resident
 lustre
-edit
+
 hull
 ominous
 overboard
@@ -7782,7 +7780,7 @@ violation
 junction
 boss
 particles
-edit
+
 glories
 signifies
 constrained
@@ -7884,7 +7882,7 @@ strata
 hushed
 maryland
 sculpture
-edit
+
 miniature
 corrections
 tangled
@@ -7985,7 +7983,7 @@ whirling
 pecuniary
 dire
 hostilities
-edit
+
 gait
 it'll
 vividly
@@ -8086,8 +8084,8 @@ claude
 transition
 button
 headache
-edit
-edit
+
+
 tenant
 burns
 harmonious
@@ -8188,7 +8186,7 @@ bluff
 dawned
 amiss
 chalk
-edit
+
 sticking
 fuss
 dazed
@@ -8289,7 +8287,7 @@ expanse
 shocking
 rudely
 isle
-edit
+
 balanced
 extracted
 fable
@@ -8390,7 +8388,7 @@ penance
 tips
 rooted
 outburst
-edit
+
 fortitude
 turk
 devour
@@ -8491,7 +8489,7 @@ monotony
 stimulus
 vigilance
 digest
-edit
+
 vale
 overcoat
 colorado
@@ -8592,7 +8590,7 @@ baking
 invincible
 impertinent
 bust
-edit
+
 visage
 intuition
 mingle
@@ -8692,7 +8690,7 @@ role
 dose
 evans
 hypocrisy
-edit
+
 l
 salmon
 snap
@@ -8793,7 +8791,7 @@ edwards
 craving
 bureau
 oscar
-edit
+
 speculative
 huddled
 diverse
@@ -8893,7 +8891,7 @@ monthly
 wines
 ignore
 envoy
-edit
+
 flown
 reverie
 jehovah
@@ -8995,7 +8993,7 @@ accompaniment
 chaps
 crawling
 lumber
-edit
+
 publishing
 customer
 mediaeval
@@ -9097,8 +9095,8 @@ exasperated
 narrowly
 collins
 insulting
-edit
-edit
+
+
 deficiency
 operating
 overthrown
@@ -9199,7 +9197,7 @@ stairway
 willingness
 sarcasm
 crisp
-edit
+
 jerk
 tout
 vocabulary
@@ -9301,7 +9299,7 @@ layers
 ownership
 cape
 glimmer
-edit
+
 scare
 waked
 bengal
@@ -9402,7 +9400,7 @@ commodore
 jelly
 advocates
 dinah
-edit
+
 salutation
 mutiny
 chronicles
@@ -9503,7 +9501,7 @@ avert
 trustworthy
 jamaica
 unchanged
-edit
+
 traveler
 unfamiliar
 puffed
@@ -9604,7 +9602,7 @@ impunity
 amends
 sol
 conveying
-edit
+
 abandonment
 mane
 tinge
@@ -9706,7 +9704,7 @@ sup
 tarry
 derision
 vehicles
-edit
+
 accommodate
 glossy
 iris
@@ -9808,7 +9806,7 @@ two
 wrap
 curly
 diversity
-edit
+
 prestige
 desertion
 freezing
@@ -9909,7 +9907,7 @@ smite
 acquitted
 os
 tumultuous
-edit
+
 barge
 palpable
 apprentice
@@ -10010,7 +10008,7 @@ couples
 speakers
 woollen
 lightness
-edit
+
 bitten
 aux
 toleration

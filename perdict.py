@@ -19,6 +19,7 @@ nottodo=[
    ]
 import sqlite3
 import time
+from datetime import timedelta, date
 import nltk
 import config
 log = config.log
@@ -36,13 +37,13 @@ class Perdict():
         # if dicfile is not a file, create the file
         # if the size is 0, create table
         self.createTable()
-        #self.populateFirst(level=15)
+        self.populateFirst(level=80)
         self.getFirstX()
     def getFirstX(self):
         filein=open(firstX_file)
         words=filein.read().split("\n")
         self.known=words
-    def populateFirst(self,level=15):
+    def populateFirst(self,level=30):
         self.cursor.execute("select count(*) from TableWordKnown")
         num=self.cursor.next()[0]
         if num>level*100: return
@@ -56,7 +57,7 @@ class Perdict():
             if self.isKnown(w.strip()):
                 continue
             self.addKnown(w.strip())
-            print w.strip(),
+            #print w.strip(),
         self.db.commit()
     def isKnown(self,word):
         if word in self.known:
@@ -180,15 +181,56 @@ class Perdict():
             if onlyOne:
                 return syns[0].definition
             else:
-                return (syn.definition for syn in syns)
+                return (' '.join((str(i+1),syn.definition)) for (i,syn) in enumerate(syns))
         else:
             return ""
     def profile(self):
         self.cursor.execute("""select count(*) from TableWordKnown""")
-        knownW= self.cursor.fetchone()[0]
+        knownTotal= self.cursor.fetchone()[0]
         self.cursor.execute("""select count(*) from TableWordNew""")
-        newW= self.cursor.fetchone()[0]
-        return (knownW, newW)
+        newTotal= self.cursor.fetchone()[0]
+        day_0=date.today().strftime("%Y-%m-%d")
+        day_1=(date.today()-timedelta(1)).strftime("%Y-%m-%d")
+        day_2=(date.today()-timedelta(2)).strftime("%Y-%m-%d")
+        day_3=(date.today()-timedelta(3)).strftime("%Y-%m-%d")
+        day_4=(date.today()-timedelta(4)).strftime("%Y-%m-%d")
+        day_5=(date.today()-timedelta(5)).strftime("%Y-%m-%d")
+        day_6=(date.today()-timedelta(6)).strftime("%Y-%m-%d")
+        day_7=(date.today()-timedelta(7)).strftime("%Y-%m-%d")
+        self.cursor.execute("""select count(*) from TableWordKnown where lastdate=?""",(day_0,))
+        knownToday= self.cursor.fetchone()[0]
+        self.cursor.execute("""select count(*) from TableWordNew where firstdate=?""",(day_0,))
+        newToday= self.cursor.fetchone()[0]
+        self.cursor.execute("""select count(*) from TableWordKnown where lastdate=?""",(day_1,))
+        known1= self.cursor.fetchone()[0]
+        self.cursor.execute("""select count(*) from TableWordNew where firstdate=?""",(day_1,))
+        new1= self.cursor.fetchone()[0]
+        self.cursor.execute("""select count(*) from TableWordKnown where lastdate=?""",(day_2,))
+        known2= self.cursor.fetchone()[0]
+        self.cursor.execute("""select count(*) from TableWordNew where firstdate=?""",(day_2,))
+        new2= self.cursor.fetchone()[0]
+        self.cursor.execute("""select count(*) from TableWordKnown where lastdate=?""",(day_3,))
+        known3= self.cursor.fetchone()[0]
+        self.cursor.execute("""select count(*) from TableWordNew where firstdate=?""",(day_3,))
+        new3= self.cursor.fetchone()[0]
+        self.cursor.execute("""select count(*) from TableWordKnown where lastdate=?""",(day_4,))
+        known4= self.cursor.fetchone()[0]
+        self.cursor.execute("""select count(*) from TableWordNew where firstdate=?""",(day_4,))
+        new4= self.cursor.fetchone()[0]
+        self.cursor.execute("""select count(*) from TableWordKnown where lastdate=?""",(day_5,))
+        known5= self.cursor.fetchone()[0]
+        self.cursor.execute("""select count(*) from TableWordNew where firstdate=?""",(day_5,))
+        new5= self.cursor.fetchone()[0]
+        self.cursor.execute("""select count(*) from TableWordKnown where lastdate=?""",(day_6,))
+        known6= self.cursor.fetchone()[0]
+        self.cursor.execute("""select count(*) from TableWordNew where firstdate=?""",(day_6,))
+        new6= self.cursor.fetchone()[0]
+        self.cursor.execute("""select count(*) from TableWordKnown where lastdate=?""",(day_7,))
+        known7= self.cursor.fetchone()[0]
+        self.cursor.execute("""select count(*) from TableWordNew where firstdate=?""",(day_7,))
+        new7= self.cursor.fetchone()[0]
+        return (knownTotal, newTotal,knownToday, newToday, known1,new1, known2,new2, known3,new3,
+                known4,new4, known5,new5, known6,new6, known7,new7)
     def close(self):
         self.db.close()
 class User():

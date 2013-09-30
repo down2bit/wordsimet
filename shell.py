@@ -49,10 +49,13 @@ def shellcmd(cmd, whandler):
         findnew(whandler)
         ret = None
     elif "selectAll" == cmdpara[0]:
-        whandler.OnSelectAll(None)
+        whandler.panelRight.pagenew.OnSelectAll(None)
         ret = None
-    elif "Apply" == cmdpara[0]:
-        whandler.OnApply(None)
+    elif "applyNew" == cmdpara[0]:
+        whandler.panelRight.pagenew.OnApplyNew(None)
+        ret = None
+    elif "applyKnown" == cmdpara[0]:
+        whandler.panelRight.pagenew.OnApplyKnown(None)
         ret = None
     elif "fontsize" == cmdpara[0]:
         whandler.updateFontSize(cmdpara[1])
@@ -67,9 +70,29 @@ def shellcmd(cmd, whandler):
         ret = whandler.onNext(event=None)
     elif "prevPage" == cmdpara[0]:
         ret = whandler.onPrev(event=None)
+    elif "stat" == cmdpara[0] or "statistics" == cmdpara[0]:
+        ret = getStat(whandler)
     else:
         ret=""    
     return ret
+def getStat(self):
+    profile = self.pdict.profile()
+    ret = "\n\
+           Total  known: %6i; new: %6i\n\n\
+           today  known: %6i; new: %6i\n\
+           -1 day known: %6i; new: %6i\n\
+           -2 day known: %6i; new: %6i\n\
+           -3 day known: %6i; new: %6i\n\
+           -4 day known: %6i; new: %6i\n\
+           -5 day known: %6i; new: %6i\n\
+           -6 day known: %6i; new: %6i\n\
+           -7 day known: %6i; new: %6i" %profile
+    """(profile[0],profile[1],profile[2],profile[3],
+                profile[4],profile[5],profile[6],profile[7],profile[8],profile[9],
+                profile[10],profile[11],profile[12],profile[13],profile[14],profile[15],
+                profile[16],profile[17])"""
+    self.panelRight.pageconsole.txtCtrl.SetValue(ret)
+    
 def getSentence(self,word): 
         passage=self.booktext.GetValue()
         sentences=split2sent(passage)
@@ -84,8 +107,8 @@ def getDefinition(self, word):
         basicw=wn.morphy(word.lower())
         if basicw ==None:
             basicw=word.lower()
-        definition = self.pdict.lookupWordnet(basicw)
-        self.panelRight.pageconsole.txtCtrl.SetValue(word+'\n'+definition)
+        definitions = self.pdict.lookupWordnet(basicw,onlyOne=False)
+        self.panelRight.pageconsole.txtCtrl.SetValue(word+'\n'+'\n'.join(definitions))
 
 def updateFile(username,newfile):
     userdb = perdictdb.Userdb()

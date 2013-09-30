@@ -4,11 +4,14 @@
     logout:
     register username password datafile: to add user
     updateFile newfile:      set newfile as current user's datafile
+
     findNew:                 find all new words in the article
-    selectAll:               select all words in the right panel.
-    Apply:                   add new words to database.
-    fontsize up/down:
+    selectAll:                 select/unselect all words in the right panel.
+    applyNew:                 save selected words as new.
+    applyKnown:             save selected words as knonw.
+    fontsize up/down:      texts become bigger/smaller
     sent[ence] astute:       get a sentence containing astute 
     def[inition] axiom:      get meaning of axiom
-    nextPage:
-    prevPage:
+    nextPage:                   turn one page forward
+    prevPage:                   turn one page backward
+    stat[istics]:                 summary of day, week, month, total
