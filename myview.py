@@ -156,7 +156,7 @@ class PageNewwords(wx.Panel):
             lastdate=self.mainframe.newwords[idx][6]
             if self.list.IsChecked(idx):
                 if self.mainframe.pdict.isMet(spell):
-                    self.mainframe.pdict.deleteMet(spell)
+                    self.mainframe.pdict.deleteNew(spell)
                     #"todo: what about the firstdate?"
                 self.mainframe.pdict.addKnown(spell,meaning,metCount,familarity,weight,firstdate,lastdate)
             else: #the word is really new

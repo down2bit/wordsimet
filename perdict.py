@@ -24,7 +24,7 @@ import config
 log = config.log
 wn = nltk.wordnet.wordnet
 
-first3k_file="./Dictionary/first3k.txt"
+firstX_file="./Dictionary/first10k.txt"
 userfile="./user.dat"
         
 class Perdict():
@@ -32,16 +32,22 @@ class Perdict():
         self.dictfile=dicfile
         self.db=sqlite3.connect(dicfile)
         self.cursor=self.db.cursor()
+        self.known=[]
         # if dicfile is not a file, create the file
         # if the size is 0, create table
         self.createTable()
-        self.populateFirst(level=15)
+        #self.populateFirst(level=15)
+        self.getFirstX()
+    def getFirstX(self):
+        filein=open(firstX_file)
+        words=filein.read().split("\n")
+        self.known=words
     def populateFirst(self,level=15):
         self.cursor.execute("select count(*) from TableWordKnown")
         num=self.cursor.next()[0]
         if num>level*100: return
-        global first3k_file
-        filein=file(first3k_file)
+        global firstX_file
+        filein=file(firstX_file)
         wordin=filein.read().split("\n")
         print len(wordin),"total first 3k"
         for w in wordin:
@@ -53,13 +59,14 @@ class Perdict():
             print w.strip(),
         self.db.commit()
     def isKnown(self,word):
+        if word in self.known:
+            return True
         rows=self.lookupKnown(word)
         if len(rows)>0:
             return True
         else:
             return False
     def isMet(self,word):
-        log.write("is Met "+word)
         rows=self.lookupNew(word)
         for r in rows: log.write(r)
         if len(rows)>0:
@@ -84,6 +91,9 @@ class Perdict():
         self.cursor.execute("""insert into TableWordNew values (?,?,?,?,?,?,?)""", 
                             (word,meaning,metTimes, familarity,importance, firstdate, lastdate))
         self.db.commit()
+    def deleteNew(self,word):
+        log.write("deleteNew:"+word)
+        self.cursor.execute("delete from TableWordNew where spell=?",(word,))
     def updateNew(self,word,metCount,familarity,weight):
         log.write("updateNew:"+word)
         today=time.strftime("%Y-%m-%d")
@@ -162,28 +172,35 @@ class Perdict():
     
         return self.cursor.fetchmany()
     def getToday(self):
-        self.cursor.execute("""select word, meaning,sentence from pdict where date=?""",(time.strftime("%Y-%m-%d"),))
+        self.cursor.execute("""select spell, definition,firstdate,lastdate from TableWordNew where firstdate=?""",(time.strftime("%Y-%m-%d"),))
         return self.cursor.fetchall()
-    def lookupWordnet(self,word):
+    def lookupWordnet(self,word,onlyOne=True):
         syns=wn.synsets(word)
         if len(syns)>0:
-            return syns[0].definition
+            if onlyOne:
+                return syns[0].definition
+            else:
+                return (syn.definition for syn in syns)
         else:
             return ""
     def profile(self):
-        self.cursor.execute("""select count(*) from pdict""")
-        return self.cursor.fetchone()
+        self.cursor.execute("""select count(*) from TableWordKnown""")
+        knownW= self.cursor.fetchone()[0]
+        self.cursor.execute("""select count(*) from TableWordNew""")
+        newW= self.cursor.fetchone()[0]
+        return (knownW, newW)
     def close(self):
         self.db.close()
 class User():
     def __init__(self,username=""):
         self.username = username
 def main():
-    mypdict=perdict("./Perdict/qiys.dic")
-    rows=mypdict.lookup("example")
+    mypdict=Perdict("./Perdict/qiys.dic")
+    rows=mypdict.lookupWordnet("example",onlyOne=False)
+    print("example:")
     for r in rows:
-        print r
-    print "number of words in perdict:",mypdict.profile()
+        print( r )
+    print( "number of words in perdict\n(known,new):%s" %(str(mypdict.profile())))
     rows=mypdict.getToday()
     for r in rows:
         print r
