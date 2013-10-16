@@ -33,6 +33,13 @@ def shellcmd(cmd, whandler):
             whandler.user=cmdpara[1]
             whandler.pdict=cmdpara[3]
             whandler.updateTitle()
+    elif "word2sent" == cmdpara[0]:
+        records = whandler.pdict.word2sent(cmdpara[1])
+        output = cmdpara[1]+":\n"
+        for rec in records:
+            typ,content,source,date=rec
+            output += "type:%s, source:%s, date:%s\n %s \n"%(typ,source,date, content)
+        whandler.panelRight.pageconsole.txtCtrl.SetValue(output)
     elif "allusers"  == cmdpara[0]:
         ret = allusers()
         strout="user: datafile"
@@ -72,26 +79,37 @@ def shellcmd(cmd, whandler):
         ret = whandler.onPrev(event=None)
     elif "stat" == cmdpara[0] or "statistics" == cmdpara[0]:
         ret = getStat(whandler)
+    elif "clear" == cmdpara[0]:
+        whandler.booktext.SetValue('')
+    elif "paste" == cmdpara[0]:
+        whandler.OnMyPaste(None)
+    elif "open" == cmdpara[0]:
+        whandler.OnOpen(None)
+    elif "save" == cmdpara[0]:
+        whandler.OnSave(None)
+    elif "sql" == cmdpara[0]:
+        ret = whandler.pdict.runSql(cmd[4:])
+        whandler.panelRight.pageconsole.txtCtrl.SetValue(unicode(ret))
     else:
-        ret=""    
-    return ret
+        whandler.panelRight.pageconsole.txtCtrl.SetValue(cmdpara[0]+" Not Known command.")    
 def getStat(self):
     profile = self.pdict.profile()
     ret = "\n\
-           Total  known: %6i; new: %6i\n\n\
-           today  known: %6i; new: %6i\n\
-           -1 day known: %6i; new: %6i\n\
-           -2 day known: %6i; new: %6i\n\
-           -3 day known: %6i; new: %6i\n\
-           -4 day known: %6i; new: %6i\n\
-           -5 day known: %6i; new: %6i\n\
-           -6 day known: %6i; new: %6i\n\
-           -7 day known: %6i; new: %6i" %profile
+           Total  known: %6i;      new: %6i\n\n\
+           today  known: %6i;      new: %6i\n\
+           day-1  known: %6i;      new: %6i\n\
+           day-2  known: %6i;      new: %6i\n\
+           day-3  known: %6i;      new: %6i\n\
+           day-4  known: %6i;      new: %6i\n\
+           day-5  known: %6i;      new: %6i\n\
+           day-6  known: %6i;      new: %6i\n\
+           day-7  known: %6i;      new: %6i" %profile
     """(profile[0],profile[1],profile[2],profile[3],
                 profile[4],profile[5],profile[6],profile[7],profile[8],profile[9],
                 profile[10],profile[11],profile[12],profile[13],profile[14],profile[15],
                 profile[16],profile[17])"""
     self.panelRight.pageconsole.txtCtrl.SetValue(ret)
+    self.panelRight.pagestat.txtCtrl.SetValue(ret)
     
 def getSentence(self,word): 
         passage=self.booktext.GetValue()
@@ -115,7 +133,7 @@ def updateFile(username,newfile):
     ret = userdb.setDictfile(username, newfile)
     return ret
 def CmdHelp():
-    return file(config.helpfile).read()
+    return file(config.HELPFILE).read()
 def allusers():
     userdb = perdictdb.Userdb()
     ret = userdb.getUsers()
@@ -154,38 +172,38 @@ def split2word(sent):
     return word_tokenize(sent)
 def findnew(self):
         strin=self.booktext.GetValue()
-        #sents = sent_tokenize(strin)
-        wlist = word_tokenize(strin)
         nwlist=[]
         self.newwords=[]
-        for w in wlist:
-            if len(w)< config.minLength:         # ignore short words
-                continue
-            if re.search("\d",w): # ignore words with digits, 5A, G8
-                continue
-            basicw=wn.morphy(w.lower())
-            if basicw ==None:
-                basicw=w.lower()
-            if self.pdict.isKnown(basicw):
-                continue
-            if basicw in nwlist:
-                continue
-            if len(basicw)<config.minLength:
-                continue
-            if self.pdict.isMet(basicw):
-                wordrecord=self.pdict.lookupNew(basicw)[0]
-            else:
-                meaning=self.pdict.lookupWordnet(basicw)
-                if meaning=='':
-                    if basicw not in self.specialwords:
-                        self.specialwords.append(basicw)
+        sents = sent_tokenize(strin)
+        for sent in sents:
+            wlist = word_tokenize(sent)
+            for w in wlist:
+                if len(w)< config.minLength:         # ignore short words
                     continue
-                mettimes=familarity=0
-                weight=config.NORMAL
-                firstdate=lastdate=time.strftime("%Y-%m-%d")
-                wordrecord=(basicw,meaning,mettimes,familarity,weight,firstdate,lastdate)
-            self.newwords.append(wordrecord)
-            nwlist.append(basicw)
+                if re.search("\d",w):                # ignore words with digits,such as 5A, G8
+                    continue
+                basicw=wn.morphy(w.lower())
+                if basicw ==None:
+                    basicw=w.lower()
+                if self.pdict.isKnown(basicw):       # ignore known words
+                    continue
+                if basicw in nwlist:
+                    continue
+                if self.pdict.isMet(basicw):
+                    basicw,meaning,mettimes,familarity,weight,firstdate,lastdate=self.pdict.lookupNew(basicw)[0]
+                    wordrecord=(basicw,meaning,mettimes,familarity,weight,firstdate,lastdate,sent)
+                else:
+                    meaning=self.pdict.lookupWordnet(basicw)
+                    if meaning=='':
+                        if basicw not in self.specialwords:
+                            self.specialwords.append(basicw)
+                        continue
+                    mettimes=familarity=0
+                    weight=config.NORMAL
+                    firstdate=lastdate=time.strftime("%Y-%m-%d")
+                    wordrecord=(basicw,meaning,mettimes,familarity,weight,firstdate,lastdate,sent)
+                self.newwords.append(wordrecord)
+                nwlist.append(basicw)
         mylist = self.panelRight.pagenew.list
         mylist.DeleteAllItems()
         for i in self.newwords:

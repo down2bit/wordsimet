@@ -92,6 +92,22 @@ class Perdict():
         self.cursor.execute("""insert into TableWordNew values (?,?,?,?,?,?,?)""", 
                             (word,meaning,metTimes, familarity,importance, firstdate, lastdate))
         self.db.commit()
+    def addSent(self, sent):
+        log.write("addSend:"+sent)
+        self.cursor.execute("""insert into TableMnemonic(type,content,source,date) values (?,?,?,?)""", 
+                            ("sent",sent,"", time.strftime("%Y-%m-%d")))
+    def addRef(self,wordid,refid):
+        self.cursor.execute("""insert into TableRef(wordid,refid) values(?,?)""", (wordid,refid))
+    def word2sent(self,word):
+        self.cursor.execute("select rowid from TableWordNew where spell=?",(word.lower(),))
+        wordid = self.cursor.next()[0]
+        self.cursor.execute("select refid from TableRef where wordid =?",(wordid,))
+        reflist = self.cursor.fetchall()
+        sents=[]
+        for refid in reflist:
+            self.cursor.execute("select * from TableMnemonic where rowid = ?",(refid[0],))
+            sents.append(self.cursor.next())
+        return sents
     def deleteNew(self,word):
         log.write("deleteNew:"+word)
         self.cursor.execute("delete from TableWordNew where spell=?",(word,))
@@ -110,22 +126,30 @@ class Perdict():
                             (metCount,familarity,today,word) )
         self.db.commit()
     def saveNew(self,wordlist,article=""):
-        if False: #article !="":
-            for word in wordlist:
-                #todo: sentence = self.findsentence(word, article)
-                if self.isMet(word):
-                    self.updateNew(word)
-                else:
-                    meaning = self.lookupWordnet(word)
-                    self.addNew(word, meaning)
-        else:
-            for word in wordlist:
-                spell,meaning,metCount,familarity,weight,firstdate,lastdate=word
-                if self.isMet(spell):
-                    self.updateNew(spell,metCount,familarity,weight)
-                else:
-                    self.addNew(spell,meaning,metCount,familarity,weight,firstdate,lastdate)
+        for word in wordlist:
+            spell,meaning,metCount,familarity,weight,firstdate,lastdate,sent=word
+            if self.isMet(spell):
+                self.updateNew(spell,metCount,familarity,weight)
+                self.cursor.execute("select rowid from TableWordNew where spell=?",(spell,))
+                wordid=self.cursor.fetchall()
+                if len(wordid)==0: continue
+                wordid = wordid[0][0]
+            else:
+                self.addNew(spell,meaning,metCount,familarity,weight,firstdate,lastdate)
+                wordid = self.getlastrowid()
+            self.addSent(sent)
+            sentid = self.getlastrowid()
+            self.addRef(wordid, sentid)
         self.db.commit()
+    def getlastrowid(self):
+        self.cursor.execute("select last_insert_rowid()")
+        return self.cursor.next()[0]
+    def runSql(self,sql):
+        self.cursor.execute(sql)
+        ret = ''
+        if "select" in sql.lower():
+            ret = self.cursor.fetchall()
+        return ret
     def createTable(self):
         self.cursor.execute("""create table if not exists pdict (word text, meaning text, sentence text, date text)""")
         self.cursor.execute("""
@@ -151,9 +175,8 @@ class Perdict():
    lastdate text)
         """)
         self.cursor.execute("""
-        create table if not exists TableMnemoric
+        create table if not exists TableMnemonic
         (
-   id text,
    type text, 
    content text,
    source text,
@@ -161,8 +184,8 @@ class Perdict():
         """)
         self.cursor.execute("""
         create table if not exists TableRef (
-    word text, 
-    reflist text)
+    wordid integer, 
+    refid integer)
         """)
     def lookupKnown(self,word):
         self.cursor.execute("select * from TableWordKnown where spell=?",(word,))
@@ -247,6 +270,11 @@ def main():
     for r in rows:
         print r
     mypdict.close()
+def test():
+    mypdict=Perdict("./Perdict/qiys.dic")
+    mypdict.runSql("select * from TableWordNew where firstdate = '2013-10-14' ")
+    for r in mypdict.cursor.fetchall():
+        print r
 if __name__=="__main__":
-    main()
+    test()
     print "Check your dict."

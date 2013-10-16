@@ -1,0 +1,22 @@
+
+A: wx.Dragimage not working
+the user releases the image. I'm not going to copy and paste the entire demo, but the main points are: You need to catch wx.EVT_LEFT_DOWN events and check to see if the user clicked an image … mouse location. You need to catch wx.EVT_LEFT_UP events and, if the user is currently dragging an image, call the EndDrag() method and place the image in the final location. If you download the wxPython demo, as I suggested above, you can see a full working example and all their code. …
+answered jul 16 '12 by acattle
+1
+vote
+A: In wxpython copy, cut, paste, and select all text from one TextCtrl to an other
+You need to know the wx.TextCtrl instance from which to cut, copy or where to paste text. In the code snippet you provided, you tried to do it with self.text, but as Velociraptors has already said … . This could be done with wx.Frame.FindFocus() class, which returns the widget in a frame which has the focus (or None). So, for Cut we get something like this: def OnCut(self, event): text = self.FindFocus() if text is not None: text.Cut() Other methods can be modified the same way. …
+answered jan 24 '12 by Andrey Sobolev
+1
+vote
+0
+answers
+Q: wxPython: How to syncronize a grid with a matplotlib canvas
+(self, event): MORE CODE HERE def copy(self): MORE CODE HERE def paste(self): MORE CODE HERE def delete(self): MORE CODE HERE class Plot(wx.Panel): def __init__(self, parent, id = -1 … . class MySheet(sheet.CSheet): """ A Copy&Paste enabled grid class""" def __init__(self, parent,NRows,NCols): sheet.CSheet.__init__(self, parent) wx.EVT_KEY_DOWN(self, self.OnKey …
+python wxpython asked mar 14 by user2168951
+0
+votes
+1
+answer
+Q: combobox wxpython program doesn't have time to make a choice
+before I have a chance to select a carrier. Is there a way to make this halt until I make a choice? Still learning how to copy/paste in here so forgive any indentation errors, it's all correct in my … I'm writing a program so I can send SMS via email and using wxpython. Using Combobox to select which carrier the phone number is attached to. However, the program continues

@@ -15,12 +15,13 @@ MAXFONT =50
 MINFONT =10
 fontsize = 15
 #---------
+MAXUSER = 5
 user="qiyuesheng"
 datafile="./Perdict/qiys.dic"
 minLength = 4
 NORMAL = 5
 defaultcmd = "nextPage"
-knownLimit = 3 # if familarity is greater than the value, the word becomes known, no more new
+knownLimit = 10 # if familarity is greater than the value, the word becomes known, no more new
 changeInOneDay = True # words can be updated twice within one day
 pagesize = 1000
 newPerPage = 10

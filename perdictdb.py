@@ -171,12 +171,6 @@ class perdict():
     def getToday(self):
         self.cursor.execute("""select word, meaning,sentence from pdict where date=?""",(time.strftime("%Y-%m-%d"),))
         return self.cursor.fetchall()
-    def lookupWordnet(self,word):
-        syns=wn.synsets(word)
-        if len(syns)>0:
-            return syns[0].definition
-        else:
-            return ""
     def profile(self):
         self.cursor.execute("""select count(*) from pdict""")
         return self.cursor.fetchone()

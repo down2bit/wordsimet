@@ -10,8 +10,14 @@
     applyNew:                 save selected words as new.
     applyKnown:             save selected words as knonw.
     fontsize up/down:      texts become bigger/smaller
-    sent[ence] astute:       get a sentence containing astute 
+    sent[ence] astute:       get a sentence containing astute from the current page
+    word2sent: praise        get all sentences containing the word praise, praised,praising etc
     def[inition] axiom:      get meaning of axiom
     nextPage:                   turn one page forward
     prevPage:                   turn one page backward
     stat[istics]:                 summary of day, week, month, total
+    clear:                  empty content
+    paste:                  paste content from clipboard
+    open filein:            get content from filein
+    save fileout:           save content to fileout
+    sql  sqlcmd:            run sql command "sqlcmd"

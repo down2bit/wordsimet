@@ -19,25 +19,37 @@ class CheckListCtrl(wx.ListCtrl, CheckListCtrlMixin, ListCtrlAutoWidthMixin):
 class PageHelp(wx.Panel):
     def __init__(self,parent):
         wx.Panel.__init__(self, parent)
-        log.write("help:"+str(self.Size)+' '+str(parent.Size))
         self.SetBackgroundColour(LIGHT_GREY)
         self.helpText = open(config.HELPFILE).read()
-        txtCtrl=wx.StaticText(self,-1, self.helpText)
-        #txtCtrl.SetBackgroundColour(LIGHT_GREY)
+        self.helpCtrl = rt.RichTextCtrl(self,-1,style=rt.RE_MULTILINE|rt.RE_READONLY)
+        self.helpCtrl.SetBackgroundColour(LIGHT_GREY)
+        myfont=self.helpCtrl.GetFont()
+        myfont.SetPointSize(myfont.GetPointSize()+3)
+        self.helpCtrl.SetFont(myfont)
+        self.helpCtrl.SetValue(self.helpText)
+        vbox = wx.BoxSizer()
+        vbox.Add(self.helpCtrl,1,wx.EXPAND)
+        self.SetSizer(vbox)
 class PageConsole(wx.Panel):
     def __init__(self,parent):
         wx.Panel.__init__(self,parent)
         self.txtCtrl=rt.RichTextCtrl(self,-1,style=rt.RE_MULTILINE|rt.RE_READONLY)
         self.txtCtrl.SetBackgroundColour(LIGHT_GREY)
+        myfont=self.txtCtrl.GetFont()
+        myfont.SetPointSize(myfont.GetPointSize()+3)
+        self.txtCtrl.SetFont(myfont)
+        self.txtCtrl.SetValue("output of command goes here.")
         vbox = wx.BoxSizer()
         vbox.Add(self.txtCtrl,1,wx.EXPAND)
         self.SetSizer(vbox)
-        self.txtCtrl.SetValue("output of command goes here.")
 class PageStat(wx.Panel):
     def __init__(self,parent):
         wx.Panel.__init__(self,parent)
         self.txtCtrl=rt.RichTextCtrl(self,-1,style=rt.RE_MULTILINE|rt.RE_READONLY)
         self.txtCtrl.SetBackgroundColour(LIGHT_GREY)
+        myfont=self.txtCtrl.GetFont()
+        myfont.SetPointSize(myfont.GetPointSize()+3)
+        self.txtCtrl.SetFont(myfont)
         vbox = wx.BoxSizer()
         vbox.Add(self.txtCtrl,1,wx.EXPAND)
         self.SetSizer(vbox)
@@ -47,6 +59,9 @@ class PageConfig(wx.Panel):
         wx.Panel.__init__(self,parent)
         self.txtCtrl=rt.RichTextCtrl(self,-1,style=rt.RE_MULTILINE|rt.RE_READONLY)
         self.txtCtrl.SetBackgroundColour(LIGHT_GREY)
+        myfont=self.txtCtrl.GetFont()
+        myfont.SetPointSize(myfont.GetPointSize()+3)
+        self.txtCtrl.SetFont(myfont)
         vbox = wx.BoxSizer()
         vbox.Add(self.txtCtrl,1,wx.EXPAND)
         self.SetSizer(vbox)
@@ -93,6 +108,9 @@ class PageNewwords(wx.Panel):
         
         lbox=wx.BoxSizer(wx.VERTICAL)
         self.list = CheckListCtrl(panelList)
+        myfont=self.list.GetFont()
+        myfont.SetPointSize(myfont.GetPointSize()+3)
+        self.list.SetFont(myfont)
         self.list.SetBackgroundColour(LIGHT_GREY)
         self.list.InsertColumn(0, 'word', width=100)
         self.list.InsertColumn(1, 'meaning',width=200)
@@ -181,9 +199,9 @@ class PageNewwords(wx.Panel):
         self.goodwords=[]
         for idx in range(num):
             if self.list.IsChecked(idx):
-                self.list.SetStringItem(idx,4,str(config.IGNORE))
+                #self.list.SetStringItem(idx,4,str(config.IGNORE))
                 rec=self.newwords[idx]
-                self.newwords[idx]=rec[:4]+(config.IGNORE,)+rec[5:]
+                #self.newwords[idx]=rec[:4]+(config.IGNORE,)+rec[5:]
         #todo: delete these checked words from the list
 
 class PanelRight(wx.Panel):
@@ -230,9 +248,9 @@ class MyPanels(wx.Frame):
         self.toolExit=wx.NewId()
         self.toolConfig=wx.NewId()
         self.toolAbout=wx.NewId()
-        toolbar.AddLabelTool(self.toolExit, 'Exit', wx.Bitmap(os.path.join(path,'img','exit.png')))
-        toolbar.AddLabelTool(self.toolConfig, 'Config', wx.Bitmap(os.path.join(path,'img','config.png')))
-        toolbar.AddLabelTool(self.toolAbout, 'About', wx.Bitmap(os.path.join(path,'img','about.png')))
+        toolbar.AddLabelTool(self.toolExit, 'Exit', wx.Bitmap(exitfile))
+        toolbar.AddLabelTool(self.toolConfig, 'Config', wx.Bitmap(configfile))
+        toolbar.AddLabelTool(self.toolAbout, 'About', wx.Bitmap(aboutfile))
         toolbar.Realize()
         
         

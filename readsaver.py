@@ -2,10 +2,7 @@
 #-*- coding: utf-8 -*-
 # panels.py
 import wx
-import wx.richtext as rt
 import os
-import ConfigParser as configparser
-import time
 import config
 import unittest
 from myview import MyPanels
@@ -44,7 +41,17 @@ class ViewCtrl(MyPanels):
         self.Bind(wx.EVT_MENU, self.OnSave, id=self.menuSave)
         self.Bind(wx.EVT_BUTTON, self.OnShell, self.CmdBtn)
         self.command.Bind(wx.EVT_KEY_DOWN,self.OnReturnKey)
-
+        self.Bind(wx.EVT_TEXT_PASTE, self.OnMyPaste,self.command)
+    def OnMyPaste(self,event):
+        if self.command.GetValue()=='':
+            event.Skip()
+            return
+        if wx.TheClipboard.Open():
+            do = wx.TextDataObject()
+            wx.TheClipboard.GetData(do)
+            self.content = do.GetText()
+            wx.TheClipboard.Close()
+            self.ToPages()
     def OnShell(self,event):
         strin=self.command.GetValue()
         if len(strin.strip())==0: strin=config.defaultcmd
@@ -108,18 +115,30 @@ class ViewCtrl(MyPanels):
             f = open(os.path.join(self.dirname,self.filename),"r")
             self.content = f.read()
             f.close()
-            self.page = 0
-            self.pages = shell.split2page(self.content)
-            self.pagenum = len(self.pages)
-            self.booktext.SetValue(self.pages[self.page])
-            
-            shell.shellcmd("findNew",self)
-            self.panelRight.pagenew.OnSelectAll(None)
+            self.ToPages()
         dlg.Destroy()
-
+    def ToPages(self):
+        #self.content = self.content.decode('cp1252',errors='replace')
+        self.content = self.content.decode('utf8',errors='replace')
+        self.page = 0
+        self.pages = shell.split2page(self.content)
+        self.pagenum = len(self.pages)
+        self.booktext.SetValue(self.pages[self.page])
+        
+        shell.shellcmd("findNew",self)
+        self.panelRight.pagenew.OnSelectAll(None)
+        self.command.SetValue("nextPage")
+        
     def OnSave(self,event):
         """Save to a file"""
-        pass
+        dlg = wx.FileDialog(self, "Choose a file", "", "","*.txt", wx.SAVE)
+        if dlg.ShowModal() == wx.ID_OK:
+            self.filename = dlg.GetFilename()
+            self.dirname = dlg.GetDirectory()
+            f = open(os.path.join(self.dirname,self.filename),"w")
+            f.write(self.content)
+            f.close()
+        dlg.Destroy()
 
 def main():
     app=wx.App(False) # Create a new app, don't redirect stdout/stderr to a window.
