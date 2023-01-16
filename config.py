@@ -3,9 +3,9 @@
 # 
 import unittest
 import os,sys,imp
-import ConfigParser as configparser
+#import ConfigParser as configparser
 import time
-
+IGNORE_LEN = 3
 DEBUG=True
 CONFIGFILE="config.txt"
 HELPFILE="help.txt"
@@ -43,7 +43,7 @@ class logger():
         self.fileout=open(logfile,'a')
     def write(self,mesg):
         if DEBUG: print(mesg)
-        self.fileout.write(time.ctime().split()[-2]+ ' '+unicode(mesg).encode('utf-8')+'\n')
+        self.fileout.write(time.ctime().split()[-2]+ ' '+mesg.encode('utf-8')+'\n')
     def close(self):
         self.fileout.close()
 

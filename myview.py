@@ -78,7 +78,7 @@ class PageConfig(wx.Panel):
         maximum of new words per day: 50
         
         """)
-        print "cfg size:", self.txtCtrl.Size
+        print("cfg size:", self.txtCtrl.Size)
 class PageNewwords(wx.Panel):
     def __init__(self,parent,mainframe):
         wx.Panel.__init__(self,parent)
@@ -219,13 +219,13 @@ class PanelRight(wx.Panel):
         nb.AddPage(self.pageconsole,"Console")
         nb.AddPage(self.pagestat,"Statistics")
         nb.AddPage(self.pagecfg,"Config")
-        print "pagesize:", self.pagecfg.Size
+        print("pagesize:", self.pagecfg.Size)
         
         sizer=wx.BoxSizer()
         sizer.Add(nb,1,wx.EXPAND)
         self.SetSizer(sizer)
-        print "pagesize2:", self.pagecfg.Size
-        print "cfg size2:", self.pagecfg.txtCtrl.Size
+        print("pagesize2:", self.pagecfg.Size)
+        print("cfg size2:", self.pagecfg.txtCtrl.Size)
 
 class MyPanels(wx.Frame):
     def __init__(self, parent=None, id=-1, title=''):

@@ -5,17 +5,32 @@
 # sentence split into words, at this time, phrases are not considered.
 # word is formalized: walks, walking and walked all become walk
 import data
+import config
+
+
 def getinput():
     return "what a wonderful world."
+
+
 def dealarticle(article):
     pages = split2page(article)
     for page in pages:
         dealpage(page)
-    
+
+
+def split2page(article):
+    return []
+
+
 def dealpage(page):
     sentences = split2sent(page)
     for sent in sentences:
         dealsent(sent)
+
+
+def split2sent(page):
+    return []
+
 
 def dealsent(sent):
     global currSntnc
@@ -23,6 +38,11 @@ def dealsent(sent):
     words = split2word(sent)
     for w in words:
         dealword(w, currSntnc)
+
+
+def split2word(sent):
+    return []
+
 
 def dealword(word, sntnc):
     """Save the word in database if it is somewhat new.
@@ -33,23 +53,72 @@ def dealword(word, sntnc):
     If it is seen before but not known quite well (in WORDLIST and WORD_STAT but familarity<9)
         insert records into SENTENCES, WORD_EXPE, update WORD_STAT
     """
+    if len(word) <= config.IGNORE_LEN:
+        return
     formw=formalize(word)
     if isKnown(formw):
         return
-    if not isPublic(formw):  # extra words are processed manually, not automatically
+    if not inDict(formw):  # extra words are processed manually, not automatically
         return
     if isMet(formw):
-        addSntnc(sntnc)
+        addSentence(sntnc)
         addExperience(formw,sntnc)
         updateStat(formw)
     if isNew(formw):
-        if isName(formw):
-            addName(formw)
-        else: # formw is not public dictionar
+        if isProperName(formw):
+            addProperName(formw)
+        else: # formw is in public dictionary
             addWord(formw)
-            addSntnc(sntnc)
+            addSentence(sntnc)
             addExperience(formw, sntnc)
-            addStat(formw)
+
+
+def isProperName(word):
+    return False
+
+
+def addProperName(word, note = ''):
+    return
+
+def addExperience(word, sentence):
+    """ wordID, sentID, metDate"""
+
+def addWord(word):
+    """ Stat set to 1"""
+    return
+
+
+def addSentence(sntnc):
+    """ Every sentence has an ID """
+    return
+
+
+def updateStat(word):
+    """ Stat increase 1
+    if Stat> config.MET_NUM_TO_KNOWN (10), """
+    return
+
+
+def formalize(word):
+    return ''
+
+def isKnown(word):
+    return False
+
+
+def isNew(word):
+    return False
+
+
+def isMet(word):
+    return False
+
+
+def inDict(word):
+    return False
+
+
+
 article = getinput()
 dealarticle(article)
-x
+

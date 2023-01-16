@@ -142,7 +142,10 @@ class ViewCtrl(MyPanels):
 
 def main():
     app=wx.App(False) # Create a new app, don't redirect stdout/stderr to a window.
-    MyPanels()
+    #MyPanels()
+    win=ViewCtrl()
+    win.Show(True)
+    win.logger.write("start main loop.")
     app.MainLoop()
 class mytest(unittest.TestCase):
     def testXMLcompare(self):
@@ -157,4 +160,5 @@ Unleashing the power of information, technologies and business solutions. Learn 
         win.logger.write("start main loop.")
         app.MainLoop()
 if __name__=='__main__':
-    unittest.main()
+    #unittest.main()
+    main()

@@ -21,7 +21,7 @@ id
 spell
 mydef
 
-NAMELIST  -- proper names like people, place, organization etc
+NAMELIST  -- proper names like people, place, organization,brand etc
 id
 spell
 mydef
@@ -41,7 +41,7 @@ PUBD  -- public dictionary, wordnet, for example
 
 MYWORDNET
 wordid
-synanym
+synonym
 antagnym
 simspell
 simsound
