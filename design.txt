@@ -11,4 +11,13 @@
          do following to change the database
              (1) insert XXX into WORDLIST
              (2) insert current sentence into SENTENCES
-    
+
+0 Prepare (Before reading)
+  List new words, with definition, not sentences
+  List words met but not known yet, with old sentences
+  Don't change database (stat remain same)
+
+2 Review (After reading)
+  2.0  set filter N,M :  last N days, stat > M, or stat < M
+  2.1  stat +=1 for newWords
+  2.2  if stat> config.MET_NUM_TO_KNOWN, move it to known
