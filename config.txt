@@ -1,7 +1,18 @@
-[dongle]
-ip = 192.168.0.100
-password = morega2009
-prompt = $
-port = 8082
-user = root
+IGNORE_LEN = 3
+DEBUG=True
+CONFIGFILE="config.txt"
+HELPFILE="help.txt"
+LOGFILE = "wim.log"
+TIMEFORMAT="%y/%m/%d %H:%M:%S"
+LIGHT_GREY=(235,235,235)
+MAXFONT =50
+MINFONT =10
+fontsize = 15
+#---------
+MAXUSER = 5
+user="qiyuesheng"
+datafile="./Perdict/qiys.dic"
+KNOWN_VOCABULARY = 3000
+minLength = 4
+NORMAL = 5
 

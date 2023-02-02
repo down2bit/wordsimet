@@ -1,71 +1,87 @@
 #!/usr/bin/env python
-#-*- coding: utf-8 -*-
-# gui.py
+# -*- coding: utf-8 -*-
+# wxPython (version 4.0.7.post2) and python (version 3.7.2) in windows, they can work together.
+# wxPython 4.2.0 and python 3.9+ don't get along.   2023-01-17
 import wx
+from wx import html2
 import wx.richtext as rt
 from wx.lib.mixins.listctrl import CheckListCtrlMixin, ListCtrlAutoWidthMixin
 import unittest
 import config
+import articleView
 import os
 import sys
+
 log = config.log
-LIGHT_GREY= config.LIGHT_GREY
+LIGHT_GREY = config.LIGHT_GREY
+
 
 class CheckListCtrl(wx.ListCtrl, CheckListCtrlMixin, ListCtrlAutoWidthMixin):
     def __init__(self, parent):
         wx.ListCtrl.__init__(self, parent, -1, style=wx.LC_REPORT | wx.SUNKEN_BORDER)
         CheckListCtrlMixin.__init__(self)
         ListCtrlAutoWidthMixin.__init__(self)
+
+
 class PageHelp(wx.Panel):
-    def __init__(self,parent):
+    def __init__(self, parent):
         wx.Panel.__init__(self, parent)
         self.SetBackgroundColour(LIGHT_GREY)
-        self.helpText = open(config.HELPFILE).read()
-        self.helpCtrl = rt.RichTextCtrl(self,-1,style=rt.RE_MULTILINE|rt.RE_READONLY)
+        helpfile = open(config.HELPFILE)
+        self.helpText = helpfile.read()
+        helpfile.close()
+        self.helpCtrl = rt.RichTextCtrl(self, -1, style=rt.RE_MULTILINE | rt.RE_READONLY)
         self.helpCtrl.SetBackgroundColour(LIGHT_GREY)
-        myfont=self.helpCtrl.GetFont()
-        myfont.SetPointSize(myfont.GetPointSize()+3)
+        myfont = self.helpCtrl.GetFont()
+        myfont.SetPointSize(myfont.GetPointSize() + 3)
         self.helpCtrl.SetFont(myfont)
         self.helpCtrl.SetValue(self.helpText)
         vbox = wx.BoxSizer()
-        vbox.Add(self.helpCtrl,1,wx.EXPAND)
+        vbox.Add(self.helpCtrl, 1, wx.EXPAND)
         self.SetSizer(vbox)
+
+
 class PageConsole(wx.Panel):
-    def __init__(self,parent):
-        wx.Panel.__init__(self,parent)
-        self.txtCtrl=rt.RichTextCtrl(self,-1,style=rt.RE_MULTILINE|rt.RE_READONLY)
+    def __init__(self, parent):
+        wx.Panel.__init__(self, parent)
+        self.txtCtrl = rt.RichTextCtrl(self, -1, style=rt.RE_MULTILINE | rt.RE_READONLY)
         self.txtCtrl.SetBackgroundColour(LIGHT_GREY)
-        myfont=self.txtCtrl.GetFont()
-        myfont.SetPointSize(myfont.GetPointSize()+3)
+        myfont = self.txtCtrl.GetFont()
+        myfont.SetPointSize(myfont.GetPointSize() + 3)
         self.txtCtrl.SetFont(myfont)
         self.txtCtrl.SetValue("output of command goes here.")
         vbox = wx.BoxSizer()
-        vbox.Add(self.txtCtrl,1,wx.EXPAND)
+        vbox.Add(self.txtCtrl, 1, wx.EXPAND)
         self.SetSizer(vbox)
+
+
 class PageStat(wx.Panel):
-    def __init__(self,parent):
-        wx.Panel.__init__(self,parent)
-        self.txtCtrl=rt.RichTextCtrl(self,-1,style=rt.RE_MULTILINE|rt.RE_READONLY)
+    def __init__(self, parent):
+        wx.Panel.__init__(self, parent)
+        self.txtCtrl = rt.RichTextCtrl(self, -1, style=rt.RE_MULTILINE | rt.RE_READONLY)
         self.txtCtrl.SetBackgroundColour(LIGHT_GREY)
-        myfont=self.txtCtrl.GetFont()
-        myfont.SetPointSize(myfont.GetPointSize()+3)
+        myfont = self.txtCtrl.GetFont()
+        myfont.SetPointSize(myfont.GetPointSize() + 3)
         self.txtCtrl.SetFont(myfont)
         vbox = wx.BoxSizer()
-        vbox.Add(self.txtCtrl,1,wx.EXPAND)
+        vbox.Add(self.txtCtrl, 1, wx.EXPAND)
         self.SetSizer(vbox)
         self.txtCtrl.SetValue("statistics and profile.")
+
+
 class PageConfig(wx.Panel):
-    def __init__(self,parent):
-        wx.Panel.__init__(self,parent)
-        self.txtCtrl=rt.RichTextCtrl(self,-1,style=rt.RE_MULTILINE|rt.RE_READONLY)
+    def __init__(self, parent):
+        wx.Panel.__init__(self, parent)
+        self.txtCtrl = rt.RichTextCtrl(self, -1, style=rt.RE_MULTILINE | rt.RE_READONLY)
         self.txtCtrl.SetBackgroundColour(LIGHT_GREY)
-        myfont=self.txtCtrl.GetFont()
-        myfont.SetPointSize(myfont.GetPointSize()+3)
+        myfont = self.txtCtrl.GetFont()
+        myfont.SetPointSize(myfont.GetPointSize() + 3)
         self.txtCtrl.SetFont(myfont)
         vbox = wx.BoxSizer()
-        vbox.Add(self.txtCtrl,1,wx.EXPAND)
+        vbox.Add(self.txtCtrl, 1, wx.EXPAND)
         self.SetSizer(vbox)
-        self.txtCtrl.SetValue("""
+        self.txtCtrl.SetValue(self.readConfig())
+        """
         Configuration:
         
         background colour: light grey
@@ -73,51 +89,56 @@ class PageConfig(wx.Panel):
         text size: 12
         new word: bold/underline
         
+        known vocabulary: 3000
         times to learn every new word: 7
         maximum of new words per page: 10
         maximum of new words per day: 50
         
-        """)
+        """
         print("cfg size:", self.txtCtrl.Size)
+
+    def readConfig(self):
+        with open(config.CONFIGFILE) as cfile:
+            return cfile.read()
+
 class PageNewwords(wx.Panel):
-    def __init__(self,parent,mainframe):
-        wx.Panel.__init__(self,parent)
-        self.mainframe=mainframe
-        bigbox=wx.BoxSizer()
-        bigpanel=wx.Panel(self)
+    def __init__(self, parent, mainframe):
+        wx.Panel.__init__(self, parent)
+        self.mainframe = mainframe
+        bigbox = wx.BoxSizer()
+        bigpanel = wx.Panel(self)
         vbox = wx.BoxSizer(wx.VERTICAL)
         panelList = wx.Panel(bigpanel)
-        panelBtn = wx.Panel(bigpanel,-1,size=(-1,10))
-         
+        panelBtn = wx.Panel(bigpanel, -1, size=(-1, 10))
+
         hbox = wx.BoxSizer(wx.HORIZONTAL)
-        btnSelect=wx.Button(panelBtn,-1,"SelectAll")
-        btnKnown=wx.Button(panelBtn,-1,"Known")
-        btnWeight=wx.Button(panelBtn,-1,"DontCare")
-        btnSave=wx.Button(panelBtn,-1,"Save")
-        hbox.Add((20,-1))
-        hbox.Add(btnSelect,0,wx.TOP,3)
-        hbox.Add(btnKnown,0,wx.TOP,3)
-        hbox.Add(btnWeight,0,wx.TOP,3)
-        hbox.Add(btnSave,0,wx.TOP,3)
+        btnSelect = wx.Button(panelBtn, -1, "SelectAll")
+        btnKnown = wx.Button(panelBtn, -1, "Known")
+        btnWeight = wx.Button(panelBtn, -1, "DontCare")
+        btnSave = wx.Button(panelBtn, -1, "Save")
+        hbox.Add((20, -1))
+        hbox.Add(btnSelect, 0, wx.TOP, 3)
+        hbox.Add(btnKnown, 0, wx.TOP, 3)
+        hbox.Add(btnWeight, 0, wx.TOP, 3)
+        hbox.Add(btnSave, 0, wx.TOP, 3)
         panelBtn.SetSizer(hbox)
         self.Bind(wx.EVT_BUTTON, self.OnSelectAll, btnSelect)
         self.Bind(wx.EVT_BUTTON, self.OnApplyKnown, btnKnown)
         self.Bind(wx.EVT_BUTTON, self.OnApplyIgnore, btnWeight)
         self.Bind(wx.EVT_BUTTON, self.OnApplyNew, btnSave)
-        
-        
-        lbox=wx.BoxSizer(wx.VERTICAL)
+
+        lbox = wx.BoxSizer(wx.VERTICAL)
         self.list = CheckListCtrl(panelList)
-        myfont=self.list.GetFont()
-        myfont.SetPointSize(myfont.GetPointSize()+3)
+        myfont = self.list.GetFont()
+        myfont.SetPointSize(myfont.GetPointSize() + 3)
         self.list.SetFont(myfont)
         self.list.SetBackgroundColour(LIGHT_GREY)
         self.list.InsertColumn(0, 'word', width=100)
-        self.list.InsertColumn(1, 'meaning',width=200)
+        self.list.InsertColumn(1, 'meaning', width=200)
         self.list.InsertColumn(2, 'M', width=20)
-        self.list.InsertColumn(3, 'F',width=20)
-        self.list.InsertColumn(4, 'W',width=20)
-        
+        self.list.InsertColumn(3, 'F', width=20)
+        self.list.InsertColumn(4, 'W', width=20)
+
         self.list.DeleteAllItems()
 
         for i in mainframe.newwords:
@@ -127,22 +148,23 @@ class PageNewwords(wx.Panel):
             self.list.SetStringItem(index, 2, str(i[2]))
             self.list.SetStringItem(index, 1, str(i[1]))
             self.list.SetStringItem(index, 0, str(i[0]))
-        lbox.Add(self.list,1,wx.EXPAND)
-        panelList.SetSizer(lbox)    
+        lbox.Add(self.list, 1, wx.EXPAND)
+        panelList.SetSizer(lbox)
 
-        #vbox.Add(self.list, 1, wx.EXPAND | wx.TOP, 3)
-        #vbox.Add((-1,20))
+        # vbox.Add(self.list, 1, wx.EXPAND | wx.TOP, 3)
+        # vbox.Add((-1,20))
         vbox.Add(panelList, 1, wx.EXPAND, 3)
-        vbox.Add(panelBtn, proportion=0,  flag=0, border=30)
-        #vbox.Add((-1, 10))
+        vbox.Add(panelBtn, proportion=1, flag=0, border=30)
+        # vbox.Add((-1, 10))
         bigpanel.SetSizer(vbox)
-        bigbox.Add(bigpanel,1, wx.EXPAND)
+        bigbox.Add(bigpanel, 1, wx.EXPAND)
         self.SetSizer(bigbox)
+
     def OnSelectAll(self, event):
         num = self.list.GetItemCount()
         for i in range(num):
             if self.list.IsChecked(i):
-                self.list.CheckItem(i,False)
+                self.list.CheckItem(i, False)
             else:
                 self.list.CheckItem(i)
 
@@ -153,39 +175,39 @@ class PageNewwords(wx.Panel):
 
     def OnApplyNew(self, event):
         num = self.list.GetItemCount()
-        goodwords=[]
+        goodwords = []
         for idx in range(num):
-            
+
             if self.list.IsChecked(idx):
-                
                 goodwords.append(self.mainframe.newwords[idx])
-        article1Page=self.mainframe.booktext.GetValue() 
-        self.mainframe.pdict.saveNew(goodwords,article1Page)
+        article1Page = self.mainframe.booktext.GetValue()
+        self.mainframe.pdict.saveNew(goodwords, article1Page)
+
     def OnApplyKnown(self, event):
         """1. save the words in tablewordknown;
         2. delete the words from tablewordnew
         3. delete the words from the new word list """
         num = self.list.GetItemCount()
-        newwords=[]
+        newwords = []
         for idx in range(num):
-            spell=self.list.GetItem(idx,0).GetText()
-            meaning=self.list.GetItem(idx,1).GetText()
-            metCount=int(self.list.GetItem(idx,2).GetText())
-            familarity=int(self.list.GetItem(idx,3).GetText())
-            weight=int(self.list.GetItem(idx,4).GetText())
-            firstdate=self.mainframe.newwords[idx][5]
-            lastdate=self.mainframe.newwords[idx][6]
+            spell = self.list.GetItem(idx, 0).GetText()
+            meaning = self.list.GetItem(idx, 1).GetText()
+            metCount = int(self.list.GetItem(idx, 2).GetText())
+            familarity = int(self.list.GetItem(idx, 3).GetText())
+            weight = int(self.list.GetItem(idx, 4).GetText())
+            firstdate = self.mainframe.newwords[idx][5]
+            lastdate = self.mainframe.newwords[idx][6]
             if self.list.IsChecked(idx):
                 if self.mainframe.pdict.isMet(spell):
                     self.mainframe.pdict.deleteNew(spell)
-                    #"todo: what about the firstdate?"
-                self.mainframe.pdict.addKnown(spell,meaning,metCount,familarity,weight,firstdate,lastdate)
-            else: #the word is really new
+                    # "todo: what about the firstdate?"
+                self.mainframe.pdict.addKnown(spell, meaning, metCount, familarity, weight, firstdate, lastdate)
+            else:  # the word is really new
                 newwords.append(self.mainframe.newwords[idx])
         self.mainframe.pdict.db.commit()
-        self.newwords=newwords
-        
-        #self.refreshList()
+        self.newwords = newwords
+
+        # self.refreshList()
         self.list.DeleteAllItems()
         for i in self.newwords:
             index = self.list.InsertStringItem(sys.maxint, i[0])
@@ -194,148 +216,189 @@ class PageNewwords(wx.Panel):
             self.list.SetStringItem(index, 2, str(i[2]))
             self.list.SetStringItem(index, 1, str(i[1]))
             self.list.SetStringItem(index, 0, str(i[0]))
+
     def OnApplyIgnore(self, event):
         num = self.list.GetItemCount()
-        self.goodwords=[]
+        self.goodwords = []
         for idx in range(num):
             if self.list.IsChecked(idx):
-                #self.list.SetStringItem(idx,4,str(config.IGNORE))
-                rec=self.newwords[idx]
-                #self.newwords[idx]=rec[:4]+(config.IGNORE,)+rec[5:]
-        #todo: delete these checked words from the list
+                # self.list.SetStringItem(idx,4,str(config.IGNORE))
+                rec = self.newwords[idx]
+                # self.newwords[idx]=rec[:4]+(config.IGNORE,)+rec[5:]
+        # todo: delete these checked words from the list
+
 
 class PanelRight(wx.Panel):
-    def __init__(self,parent,mainframe):
-        wx.Panel.__init__(self,parent)
+    def __init__(self, parent, mainframe):
+        wx.Panel.__init__(self, parent)
         self.mainframe = mainframe
-        nb=wx.Notebook(self)
-        self.pagenew=PageNewwords(nb,mainframe)
+        nb = wx.Notebook(self)
+        self.pagenew = PageNewwords(nb, mainframe)
         self.pagehelp = PageHelp(nb)
-        self.pageconsole=PageConsole(nb)
+        self.pageconsole = PageConsole(nb)
         self.pagestat = PageStat(nb)
         self.pagecfg = PageConfig(nb)
-        nb.AddPage(self.pagenew,"NewWords")
-        nb.AddPage(self.pagehelp,"Help")
-        nb.AddPage(self.pageconsole,"Console")
-        nb.AddPage(self.pagestat,"Statistics")
-        nb.AddPage(self.pagecfg,"Config")
+        nb.AddPage(self.pagenew, "NewWords")
+        nb.AddPage(self.pagehelp, "Help")
+        nb.AddPage(self.pageconsole, "Console")
+        nb.AddPage(self.pagestat, "Statistics")
+        nb.AddPage(self.pagecfg, "Config")
         print("pagesize:", self.pagecfg.Size)
-        
-        sizer=wx.BoxSizer()
-        sizer.Add(nb,1,wx.EXPAND)
+
+        sizer = wx.BoxSizer()
+        sizer.Add(nb, 1, wx.EXPAND)
         self.SetSizer(sizer)
         print("pagesize2:", self.pagecfg.Size)
         print("cfg size2:", self.pagecfg.txtCtrl.Size)
 
+
 class MyPanels(wx.Frame):
     def __init__(self, parent=None, id=-1, title=''):
-        wx.Frame.__init__(self, parent, id, title, size=(1200,800))
-        self.CreateStatusBar() # a status bar in the bottom 
+        wx.Frame.__init__(self, parent, id, title, size=(1200, 800))
+        self.CreateStatusBar()  # a status bar in the bottom
         self.CreateMenu()
-        self.splitter = wx.SplitterWindow(self,-1)
-        #self.CreateRightPanel()
-        self.newwords=[]        
+        self.splitter = wx.SplitterWindow(self, -1)
+        # self.CreateRightPanel()
+        self.newwords = []
         self.panelRight = PanelRight(self.splitter, self)
-        self.CreateLeftPanel()
-        self.CreateMyToolbar()
-        self.splitter.SplitVertically(self.panelLeft,self.panelRight,sashPosition=900)
+        self.panelLeft = articleView.Window(parent=self.splitter)
+        #self.CreateLeftPanel()
+        #self.CreateMyToolbar()
+        self.splitter.SplitVertically(self.panelLeft, self.panelRight, sashPosition=900)
+
     def CreateMyToolbar(self):
-        path=config.get_main_dir()
-        exitfile=os.path.join(path,'img','exit.png')
-        configfile=os.path.join(path,'img','config.png')
-        aboutfile=os.path.join(path,'img','about.png')
+        path = config.get_main_dir()
+        print(f"main path is {path}")
+        print(f"file path is {__file__}")
+        exitfile = os.path.join(path, 'img', 'exit.png')
+        configfile = os.path.join(path, 'img', 'config.png')
+        aboutfile = os.path.join(path, 'img', 'about.png')
         toolbar = self.CreateToolBar()
-        self.toolExit=wx.NewId()
-        self.toolConfig=wx.NewId()
-        self.toolAbout=wx.NewId()
-        toolbar.AddLabelTool(self.toolExit, 'Exit', wx.Bitmap(exitfile))
-        toolbar.AddLabelTool(self.toolConfig, 'Config', wx.Bitmap(configfile))
-        toolbar.AddLabelTool(self.toolAbout, 'About', wx.Bitmap(aboutfile))
+        self.toolExit = wx.NewIdRef(1)
+        self.toolConfig = wx.NewIdRef(1)
+        self.toolAbout = wx.NewIdRef(1)
+        toolbar.AddTool(self.toolExit, 'Exit', wx.Bitmap(exitfile))
+        toolbar.AddTool(self.toolConfig, 'Config', wx.Bitmap(configfile))
+        toolbar.AddTool(self.toolAbout, 'About', wx.Bitmap(aboutfile))
         toolbar.Realize()
-        
-        
+
     def CreateLeftPanel(self):
         vboxMsg = wx.BoxSizer(wx.VERTICAL)
         self.panelLeft = wx.Panel(self.splitter, -1)
-        splitterLeft = wx.SplitterWindow(self.panelLeft,-1)
-        self.booktext = rt.RichTextCtrl(splitterLeft,style=wx.TE_MULTILINE)
+        #self.panelLeft.sizer = vboxMsg
+        splitterLeft = wx.SplitterWindow(self.panelLeft, -1)
+        #self.booktext = rt.RichTextCtrl(splitterLeft, style=wx.TE_MULTILINE)
+        self.booktext = articleView.Window()
         self.booktext.SetBackgroundColour(LIGHT_GREY)
         self.page = 0
         self.pagenum = 0
         self.pages = ['']
         self.content = ''
-        self.fontsize=config.fontsize
-        self.booktext.BeginFontSize(self.fontsize)
-        panelCmd = wx.Panel(splitterLeft, -1,size=(-1,10))
-        splitterLeft.SplitHorizontally(self.booktext,panelCmd,sashPosition=-60)
-        #panelMsgsend.SetSize((-1,10))
+        self.fontsize = config.fontsize
+        #self.booktext.BeginFontSize(self.fontsize)
+        panelCmd = wx.Panel(splitterLeft, -1, size=(-1, 10))
+        splitterLeft.SplitVertically(self.booktext, panelCmd, sashPosition=-60)
+        # panelMsgsend.SetSize((-1,10))
         vboxMsg.Add(self.booktext, 0, wx.EXPAND)
-        vboxMsg.Add(splitterLeft, 1, wx.EXPAND)
-        #vboxMsg.Add(panelCmd, 0, wx.EXPAND)  # without adding explicitly, panelCmd fill the gap
-        self.panelLeft.SetSizer(vboxMsg)
+        # vboxMsg.Add(panelCmd, 0, wx.EXPAND)  # without adding explicitly, panelCmd fill the gap
+        #self.panelLeft.SetSizer(vboxMsg)
+        # msgTitle.SetForegroundColour('RED')
 
-        #msgTitle.SetForegroundColour('RED')
-        
         hboxCmd = wx.BoxSizer(wx.HORIZONTAL)
-        
-        self.command = wx.TextCtrl(panelCmd,-1,style=wx.TE_MULTILINE)
-        self.CmdBtn = wx.Button(panelCmd,-1,"Run",size=(40,-1))
-        
-        hboxCmd.Add(self.command,1,wx.EXPAND)
-        hboxCmd.Add(self.CmdBtn,0,wx.EXPAND)
+
+        self.command = wx.TextCtrl(panelCmd, -1, style=wx.TE_MULTILINE)
+        self.CmdBtn = wx.Button(panelCmd, -1, "Run", size=(40, -1))
+
+        hboxCmd.Add(self.command, 1, wx.EXPAND)
+        hboxCmd.Add(self.CmdBtn, 0, wx.EXPAND)
         panelCmd.SetSizer(hboxCmd)
-        
+        #vboxMsg.Add(panelCmd, 1, wx.EXPAND)
+        #vboxMsg.Add(panelCmd, 1, wx.EXPAND)
+        vboxMsg.Add(panelCmd, proportion=1, flag=0, border=30)
+        self.panelLeft.sizer = vboxMsg
+
     def CreateMenu(self):
         # Setting up the menu
         filemenu = wx.Menu()
-        self.menuOpen = wx.NewId()
-        filemenu.Append(self.menuOpen, "&Open","Open a file")
-        
-        self.menuSave = wx.NewId()
+        self.menuOpen = wx.NewIdRef(1)
+        filemenu.Append(self.menuOpen, "&Open", "Open a file")
+
+        self.menuSave = wx.NewIdRef(1)
         filemenu.Append(self.menuSave, "&Save", "Save to a file")
         filemenu.AppendSeparator()
-        #wx.ID_ABOUT and wx.ID_EXIT are standard IDs by wxWidgets.
+        # wx.ID_ABOUT and wx.ID_EXIT are standard IDs by wxWidgets.
         self.menuExit = filemenu.Append(wx.ID_EXIT, "E&xit", "Terminate the program")
 
         helpmenu = wx.Menu()
         self.menuAbout = helpmenu.Append(wx.ID_ABOUT, "&About", "Information about the program")
         helpmenu.AppendSeparator()
-        
+
         cfgmenu = wx.Menu()
-        self.menuCfg = cfgmenu.Append(wx.ID_ANY,"&Config","Setting IP,Port ...")
-        #Creating the menubar.
+        self.menuCfg = cfgmenu.Append(wx.ID_ANY, "&Config", "Setting IP,Port ...")
+        # Creating the menubar.
         menuBar = wx.MenuBar()
-        menuBar.Append(filemenu, "&File") # Adding the "filemenu" to the MenuBar
+        menuBar.Append(filemenu, "&File")  # Adding the "filemenu" to the MenuBar
         menuBar.Append(cfgmenu, "Config")
         menuBar.Append(helpmenu, "&Help")
-        #menuBar.Enable(menuOpen,False)
-        #menuBar.Enable(menuSave,False)
-        self.SetMenuBar(menuBar) # Adding the menuBar to the Frame content.
+        # menuBar.Enable(menuOpen,False)
+        # menuBar.Enable(menuSave,False)
+        self.SetMenuBar(menuBar)  # Adding the menuBar to the Frame content.
 
     def updateFontSize(self, updown):
-        if updown=="up":
-            self.fontsize+=1
-            if self.fontsize>config.MAXFONT:
+        if updown == "up":
+            self.fontsize += 1
+            if self.fontsize > config.MAXFONT:
                 self.fontsize = config.MAXFONT
         elif updown == "down":
-            self.fontsize -=1
-            if self.fontsize<config.MINFONT:
+            self.fontsize -= 1
+            if self.fontsize < config.MINFONT:
                 self.fontsize = config.MINFONT
-        strin=self.booktext.GetValue()
+        strin = self.booktext.GetValue()
         self.booktext.SetValue("")
-        #self.msglog.EndFontSize()
+        # self.msglog.EndFontSize()
         self.booktext.BeginFontSize(self.fontsize)
         self.booktext.SetValue(strin)
-        #self.msglog.EndFontSize()
+        # self.msglog.EndFontSize()
+
+
 def main():
-    app=wx.App(False) # Create a new app, don't redirect stdout/stderr to a window.
-    MyPanels()
+    app = wx.App(False)  # Create a new app, don't redirect stdout/stderr to a window.
+    win = MyPanels()
+    win.Show(True)
+    app.MainLoop()
+
+
+class MyBrowser(wx.Frame):
+    def __init__(self, *args, **kwds):
+        wx.Frame.__init__(self, *args, **kwds)
+        sizer = wx.BoxSizer(wx.VERTICAL)
+        self.browser = html2.WebView.New(self)
+        sizer.Add(self.browser, 1, wx.EXPAND, 10)
+        self.command = wx.TextCtrl(self, -1, style=wx.TE_MULTILINE)
+        self.CmdBtn = wx.Button(self, -1, "Run", size=(40, -1))
+        sizer.Add(self.command)
+        sizer.Add(self.CmdBtn )
+        self.SetSizer(sizer)
+        self.SetSize((700, 700))
+
+
+def testweb():
+    print("hello, webview")
+    app = wx.App()
+    dialog = MyBrowser(None, -1, "webview")
+    dialog.browser.LoadURL("https://www.google.ca")
+    dialog.Show()
     app.MainLoop()
 class mytest(unittest.TestCase):
     def testXMLcompare(self):
-        app=wx.App(False)
+        print("hello, test")
+        app = wx.App(False)
         win = MyPanels()
         win.Show(True)
         app.MainLoop()
-if __name__=='__main__':
-    unittest.main()
+
+
+if __name__ == '__main__':
+    #unittest.main()
+    #testweb()
+    main()

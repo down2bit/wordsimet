@@ -2,13 +2,16 @@
 #-*- coding: utf-8 -*-
 # 
 import unittest
-import os,sys,imp
+import os
+import  sys
+#import imp
 #import ConfigParser as configparser
 import time
 IGNORE_LEN = 3
 DEBUG=True
 CONFIGFILE="config.txt"
 HELPFILE="help.txt"
+LOGFILE = "wim.log"
 TIMEFORMAT="%y/%m/%d %H:%M:%S"
 LIGHT_GREY=(235,235,235)
 MAXFONT =50
@@ -18,6 +21,7 @@ fontsize = 15
 MAXUSER = 5
 user="qiyuesheng"
 datafile="./Perdict/qiys.dic"
+KNOWN_VOCABULARY = 3000
 minLength = 4
 NORMAL = 5
 defaultcmd = "nextPage"
@@ -29,21 +33,25 @@ newPerPage = 10
 def timestamp():
     return time.strftime(TIMEFORMAT)
 def get_main_dir():
-    if  (hasattr(sys,"frozen") or imp.is_frozen("__main__")):
+    """if  (hasattr(sys,"frozen") or imp.is_frozen("__main__")):
         return os.path.dirname(sys.executable) #os.environ["_MEIPASS2"] #
-    return os.path.dirname(sys.argv[0]) 
+    return os.path.dirname(sys.argv[0]) """
+    return os.path.dirname(__file__)
 def get_data_dir():
-    if  (hasattr(sys,"frozen") or imp.is_frozen("__main__")):
+    """if  (hasattr(sys,"frozen") or imp.is_frozen("__main__")):
         return os.environ["_MEIPASS2"] #os.path.dirname(sys.executable) #
-    return os.path.dirname(sys.argv[0]) 
+    return os.path.dirname(sys.argv[0]) """
+    return os.path.dirname(__file__)
 class logger():
-    def __init__(self,logfile='log.txt'):
-        path = get_main_dir()
-        logfile = os.path.join(path,logfile)
-        self.fileout=open(logfile,'a')
+    def __init__(self, logfile=LOGFILE):
+        path = os.path.dirname(__file__)
+        logfile = os.path.join(path, logfile)
+        self.fileout=open(logfile, 'a')
+
     def write(self,mesg):
         if DEBUG: print(mesg)
-        self.fileout.write(time.ctime().split()[-2]+ ' '+mesg.encode('utf-8')+'\n')
+        self.fileout.write(time.ctime().split()[-2] + ' '+mesg.encode('utf-8')+'\n')
+
     def close(self):
         self.fileout.close()
 

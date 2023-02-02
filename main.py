@@ -6,8 +6,9 @@
 # word is formalized: walks, walking and walked all become walk
 import data
 import config
-
-
+import myview
+import sys
+import wx
 def getinput():
     return "what a wonderful world."
 
@@ -118,7 +119,12 @@ def inDict(word):
     return False
 
 
+def main(argv):
+    print(argv[0])
+    app = wx.App(False)
+    win = myview.MyPanels()
+    win.Show(True)
+    app.MainLoop()
 
-article = getinput()
-dealarticle(article)
-
+if __name__ == '__main__':
+    main(sys.argv)

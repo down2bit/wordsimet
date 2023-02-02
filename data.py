@@ -168,8 +168,8 @@ if __name__ == "__main__":
     print(user.getSentence())
     print(user.getStat())
     print(user.getMeet())
-    assert user.getNew() == [(1,'hello',''),]
-    assert user.getSentence() == [(1,'hello,world.',''),]
+    assert user.getNew() == [(2, 'hello', '')]
+    assert user.getSentence() == [(2, 'hello,world.',''),]
     assert user.getStat() == [(1,2,3,5,'2013-09-12'),]
     assert user.getMeet() == [(1,1,'2013-09-12'),]
     """
